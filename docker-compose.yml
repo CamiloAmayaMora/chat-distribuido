@@ -1,0 +1,24 @@
+# Despliegue del servidor del grupo (lo que se usa en la sesión de interoperabilidad).
+#   1) cp .env.example .env   y editar GROUP_NAME, PUBLIC_URL y CENTRAL_URL
+#   2) docker compose up -d --build
+#   3) abrir http://localhost:${HOST_PORT}
+services:
+  server:
+    build: ./server
+    image: chat-distribuido/server:latest
+    env_file: .env
+    environment:
+      DB_PATH: /data/chat.db
+      EVENTS_LOG: /data/events.jsonl
+    ports:
+      - "${HOST_PORT:-8000}:8000"
+    volumes:
+      - chat-data:/data          # SQLite: usuarios, historial, outbox y reloj de Lamport
+    restart: unless-stopped
+    networks: [chat]
+
+volumes:
+  chat-data:
+
+networks:
+  chat:
