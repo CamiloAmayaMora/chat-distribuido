@@ -1,0 +1,75 @@
+18:01:41 === modo recovery: levantando laboratorio limpio ===
+18:01:52 --- recovery | caída 2s | repetición 1/3
+18:01:57   ga KILL  (t=4.0s)
+18:02:01   ga START (caída real 4.8s)
+18:02:11   => enviados=61 faltan=0 dup_pantalla=0 dup_descartados=28 t_rec=0.01
+18:02:13 --- recovery | caída 2s | repetición 2/3
+18:02:18   ga KILL  (t=4.0s)
+18:02:22   ga START (caída real 4.6s)
+18:02:32   => enviados=61 faltan=0 dup_pantalla=0 dup_descartados=27 t_rec=0.25
+18:02:34 --- recovery | caída 2s | repetición 3/3
+18:02:39   ga KILL  (t=4.0s)
+18:02:43   ga START (caída real 4.7s)
+18:02:53   => enviados=61 faltan=0 dup_pantalla=0 dup_descartados=24 t_rec=0.25
+18:02:55 --- recovery | caída 5s | repetición 1/3
+18:02:59   ga KILL  (t=4.0s)
+18:03:06   ga START (caída real 7.6s)
+18:03:16   => enviados=76 faltan=0 dup_pantalla=0 dup_descartados=43 t_rec=1.09
+18:03:18 --- recovery | caída 5s | repetición 2/3
+18:03:23   ga KILL  (t=4.0s)
+18:03:30   ga START (caída real 7.7s)
+18:03:40   => enviados=76 faltan=0 dup_pantalla=0 dup_descartados=37 t_rec=0.89
+18:03:42 --- recovery | caída 5s | repetición 3/3
+18:03:47   ga KILL  (t=4.0s)
+18:03:53   ga START (caída real 7.3s)
+18:04:04   => enviados=76 faltan=0 dup_pantalla=0 dup_descartados=46 t_rec=1.2
+18:04:06 --- recovery | caída 10s | repetición 1/3
+18:04:10   ga KILL  (t=4.0s)
+18:04:22   ga START (caída real 12.7s)
+18:04:33   => enviados=101 faltan=0 dup_pantalla=0 dup_descartados=47 t_rec=0.02
+18:04:35 --- recovery | caída 10s | repetición 2/3
+18:04:39   ga KILL  (t=4.0s)
+18:04:51   ga START (caída real 12.6s)
+18:05:01   => enviados=101 faltan=0 dup_pantalla=0 dup_descartados=63 t_rec=0.02
+18:05:03 --- recovery | caída 10s | repetición 3/3
+18:05:08   ga KILL  (t=4.0s)
+18:05:20   ga START (caída real 12.7s)
+18:05:30   => enviados=101 faltan=0 dup_pantalla=0 dup_descartados=48 t_rec=0.03
+18:05:32 === modo norecovery: levantando laboratorio limpio ===
+18:05:44 --- norecovery | caída 2s | repetición 1/3
+18:05:49   ga KILL  (t=4.0s)
+18:05:53   ga START (caída real 4.5s)
+18:06:03   => enviados=61 faltan=0 dup_pantalla=0 dup_descartados=5 t_rec=0.48
+18:06:05 --- norecovery | caída 2s | repetición 2/3
+18:06:09   ga KILL  (t=4.0s)
+18:06:14   ga START (caída real 5.1s)
+18:06:51   => enviados=61 faltan=1 dup_pantalla=0 dup_descartados=1 t_rec=
+18:06:53 --- norecovery | caída 2s | repetición 3/3
+18:06:58   ga KILL  (t=4.0s)
+18:07:03   ga START (caída real 5.6s)
+18:07:41   => enviados=61 faltan=2 dup_pantalla=0 dup_descartados=6 t_rec=
+18:07:43 --- norecovery | caída 5s | repetición 1/3
+18:07:47   ga KILL  (t=4.0s)
+18:07:55   ga START (caída real 8.7s)
+18:08:33   => enviados=76 faltan=4 dup_pantalla=0 dup_descartados=7 t_rec=
+18:08:35 --- norecovery | caída 5s | repetición 2/3
+18:08:40   ga KILL  (t=4.0s)
+18:08:48   ga START (caída real 8.8s)
+18:09:25   => enviados=76 faltan=1 dup_pantalla=0 dup_descartados=7 t_rec=
+18:09:27 --- norecovery | caída 5s | repetición 3/3
+18:09:32   ga KILL  (t=4.0s)
+18:09:40   ga START (caída real 9.1s)
+18:10:17   => enviados=76 faltan=5 dup_pantalla=0 dup_descartados=7 t_rec=
+18:10:19 --- norecovery | caída 10s | repetición 1/3
+18:10:24   ga KILL  (t=4.0s)
+18:10:36   ga START (caída real 13.1s)
+18:11:13   => enviados=101 faltan=25 dup_pantalla=0 dup_descartados=9 t_rec=
+18:11:15 --- norecovery | caída 10s | repetición 2/3
+18:11:20   ga KILL  (t=4.0s)
+18:11:34   ga START (caída real 14.7s)
+18:12:11   => enviados=101 faltan=63 dup_pantalla=0 dup_descartados=4 t_rec=
+18:12:13 --- norecovery | caída 10s | repetición 3/3
+18:12:18   ga KILL  (t=4.0s)
+18:12:30   ga START (caída real 12.9s)
+18:13:07   => enviados=101 faltan=24 dup_pantalla=0 dup_descartados=16 t_rec=
+18:13:09 Resultados guardados en C:\Users\camil\Downloads\Proyecto Final Sistemas Distribuidos\chat-distribuido\experiment\results\results.csv
