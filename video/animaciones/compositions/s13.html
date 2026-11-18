@@ -1,0 +1,106 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s13-scene { position: absolute; inset: 0; }
+    #s13-k { left: 120px; top: 60px; }
+    #s13-lap { position: absolute; left: 260px; top: 120px; width: 1400px; height: 420px; border-radius: 30px; border: 3px solid var(--line); background: rgba(21, 27, 36, 0.6); }
+    #s13-lap .kicker { left: 34px; top: 22px; font-size: 28px; }
+    #s13-svg { position: absolute; inset: 0; }
+    .s13-n { width: 260px; height: 150px; font-size: 52px; top: 255px; }
+    #s13-gb { left: 340px; border-color: var(--gb); }
+    #s13-c { left: 830px; border-color: var(--ink); font-size: 36px; text-align: center; }
+    #s13-ga { left: 1320px; border-color: var(--ga); }
+    #s13-rate { left: 330px; top: 430px; font-family: var(--font-mono); font-size: 28px; color: var(--gb); position: absolute; }
+    #s13-kill { left: 1300px; top: 430px; font-family: var(--font-mono); font-size: 28px; color: var(--bad); position: absolute; }
+    #s13-ch1 { left: 300px; top: 192px; border-color: var(--warn); color: var(--warn); font-size: 28px; }
+    #s13-ch2 { left: 1040px; top: 192px; border-color: var(--warn); color: var(--warn); font-size: 28px; }
+    #s13-axis { position: absolute; left: 260px; top: 650px; width: 1400px; height: 6px; border-radius: 3px; background: var(--line); transform-origin: 0 50%; }
+    #s13-gap { position: absolute; left: 610px; top: 642px; width: 380px; height: 22px; border-radius: 11px; background: var(--bad); transform-origin: 0 50%; }
+    #s13-m0 { left: 230px; top: 690px; font-family: var(--font-mono); font-size: 28px; color: var(--muted); position: absolute; }
+    #s13-m1 { left: 540px; top: 690px; font-family: var(--font-mono); font-size: 28px; color: var(--bad); position: absolute; }
+    #s13-ds { left: 1030px; top: 618px; }
+    #s13-ds b { color: var(--bad); }
+    #s13-grid { position: absolute; left: 260px; top: 800px; width: 1400px; }
+    #s13-gt { font-family: var(--font-display); font-size: 46px; font-weight: 600; }
+    #s13-gt b { color: var(--ok); font-weight: 600; }
+    #s13-cells { display: flex; gap: 12px; margin-top: 22px; }
+    .s13-cell { width: 64px; height: 64px; border-radius: 12px; background: var(--ok); }
+    .s13-cell.n { background: var(--muted); }
+    #s13-leg { margin-top: 16px; font-size: 28px; color: var(--muted); }
+    #s13-leg b { color: var(--ok); font-weight: 600; }
+  </style>
+  <div id="root" data-composition-id="s13" data-width="1920" data-height="1080">
+    <div id="s13-scene" class="clip" data-start="0" data-duration="31">
+      <div id="s13-k" class="kicker">Experimento · método</div>
+      <div id="s13-lap"><div class="kicker">un solo portátil · docker compose</div></div>
+      <svg id="s13-svg" viewBox="0 0 1920 1080">
+        <line x1="600" y1="330" x2="830" y2="330" stroke="#2a3442" stroke-width="5" />
+        <line x1="1090" y1="330" x2="1320" y2="330" stroke="#2a3442" stroke-width="5" />
+        <g fill="#5aa9ff">
+          <circle class="s13-a" cx="600" cy="330" r="10" opacity="0" /><circle class="s13-a" cx="600" cy="330" r="10" opacity="0" />
+          <circle class="s13-a" cx="600" cy="330" r="10" opacity="0" /><circle class="s13-a" cx="600" cy="330" r="10" opacity="0" />
+          <circle class="s13-b" cx="1090" cy="330" r="10" opacity="0" /><circle class="s13-b" cx="1090" cy="330" r="10" opacity="0" />
+          <circle class="s13-b" cx="1090" cy="330" r="10" opacity="0" /><circle class="s13-b" cx="1090" cy="330" r="10" opacity="0" />
+        </g>
+      </svg>
+      <div id="s13-gb" class="node s13-n">gb</div>
+      <div id="s13-c" class="node s13-n">central<small>de prueba</small></div>
+      <div id="s13-ga" class="node s13-n">ga</div>
+      <div id="s13-rate">5 mensajes/s</div>
+      <div id="s13-kill">docker kill ga</div>
+      <div id="s13-ch1" class="chip">10 % respuestas perdidas</div>
+      <div id="s13-ch2" class="chip">10 % reenvíos dobles</div>
+      <div id="s13-axis"></div>
+      <div id="s13-gap"></div>
+      <div id="s13-m0">0 s</div>
+      <div id="s13-m1">4 s: se apaga ga</div>
+      <div id="s13-ds" class="chip">caída de <b id="s13-dv">2 s</b></div>
+      <div id="s13-grid">
+        <div id="s13-gt">3 caídas × 2 modos × 3 repeticiones = <b>18 corridas</b></div>
+        <div id="s13-cells">
+          <div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div><div class="s13-cell"></div>
+          <div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div><div class="s13-cell n"></div>
+        </div>
+        <div id="s13-leg"><b>■</b> con recuperación (pide /history)    ■ sin recuperación (control)</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s13-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s13-lap", { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 0.2);
+    tl.fromTo(["#s13-c", "#s13-gb", "#s13-ga"], { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out", stagger: 0.35 }, 0.6);
+    tl.fromTo("#s13-rate", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 4.6);
+    // flujo constante gb -> central (todo el tiempo) y central -> ga (se corta con la caída)
+    gsap.utils.toArray(".s13-a").forEach((d, i) => {
+      tl.set(d, { opacity: 1 }, 4.6 + i * 0.2);
+      tl.fromTo(d, { attr: { cx: 600 } }, { attr: { cx: 830 }, duration: 0.8, ease: "none", repeat: 26 }, 4.6 + i * 0.2);
+      tl.set(d, { opacity: 0 }, 26.2 + i * 0.2);
+    });
+    gsap.utils.toArray(".s13-b").forEach((d, i) => {
+      tl.set(d, { opacity: 1 }, 5.4 + i * 0.2);
+      tl.fromTo(d, { attr: { cx: 1090 } }, { attr: { cx: 1320 }, duration: 0.8, ease: "none", repeat: 2 }, 5.4 + i * 0.2);
+      tl.set(d, { opacity: 0 }, 7.8 + i * 0.2);
+    });
+    // la caída de ga
+    tl.to("#s13-ga", { opacity: 0.3, borderColor: "#ff5c5c", duration: 0.25 }, 8.0);
+    tl.fromTo("#s13-kill", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 8.0);
+    tl.fromTo("#s13-axis", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 7.2);
+    tl.fromTo(["#s13-m0", "#s13-m1"], { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.3 }, 7.6);
+    tl.fromTo("#s13-gap", { scaleX: 0 }, { scaleX: 0.25, duration: 0.5, ease: "expo.out" }, 10.4);
+    tl.fromTo("#s13-ds", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 10.4);
+    tl.to("#s13-gap", { scaleX: 0.55, duration: 0.5, ease: "expo.out" }, 11.4);
+    tl.set("#s13-dv", { textContent: "5 s" }, 11.4);
+    tl.to("#s13-gap", { scaleX: 1, duration: 0.5, ease: "expo.out" }, 12.4);
+    tl.set("#s13-dv", { textContent: "10 s" }, 12.4);
+    // fallas inyectadas en el central
+    tl.fromTo("#s13-ch1", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 13.8);
+    tl.fromTo("#s13-ch2", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 16.6);
+    // 18 corridas
+    tl.fromTo("#s13-gt", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 19.8);
+    tl.fromTo(".s13-cell", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.07 }, 20.6);
+    tl.fromTo("#s13-leg", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 22.4);
+    tl.to("#s13-scene", { opacity: 0, duration: 0.3, ease: "power2.in" }, 30.6);
+    window.__timelines["s13"] = tl;
+  </script>
+</template>

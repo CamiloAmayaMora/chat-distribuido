@@ -177,7 +177,22 @@ docker compose -f docker-compose.lab.yml stop central       # el central cae: CE
 docker compose -f docker-compose.lab.yml start central      # CENTRAL_UP, OUTBOX_FLUSH, sin duplicados
 ```
 
-## 10. Referencias
+## 10. Video de sustentación
+
+Guion, plan de grabación y edición: **[docs/Guion_video.pdf](docs/Guion_video.pdf)** (≈ 7 min).
+
+| Pieza | Dónde | Cómo se regenera |
+|---|---|---|
+| Animaciones (11 escenas, HyperFrames) | `video/animaciones/` → `video/render/escenas/` | `npx hyperframes render` + `python video/tools/preparar_medios.py` |
+| Demo real grabada (caídas y recuperación) | `video/render/demo.mp4` | `node video/demo/grabar_demo.mjs` (con el laboratorio arriba) |
+| Rótulos con nombres (fondo transparente) | `video/rotulos/` → `video/render/rotulos/` | `npx hyperframes render --format mov --variables …` |
+| Voz guía sintética | `video/tts/` | `powershell -File video/build_tts.ps1` |
+| Borrador completo con voz guía | `video/render/borrador_con_voz_guia.mp4` | `python video/tools/borrador.py` |
+| Proyecto de DaVinci Resolve | `video/resolve/` | Resolve: *Workspace › Scripts › Utility › Armar_video_chat_distribuido* (o *File › Import › Timeline* con `linea_de_tiempo.fcpxml`) |
+
+El texto de cada escena está en `video/guion_video.json` (fuente única).
+
+## 11. Referencias
 
 * Vitillo, R. *Understanding Distributed Systems* (2.ª ed.), 2022 — **libro del curso**. Parte I (cap. 2 enlaces confiables, cap. 4 descubrimiento, cap. 5 APIs), cap. 7 (detección de fallas), cap. 8 (tiempo: relojes de Lamport).
 * Lamport, L. "Time, Clocks, and the Ordering of Events in a Distributed System". *CACM* 21(7), 1978.

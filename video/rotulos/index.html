@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es" data-composition-variables='[{"id":"nombre","type":"string","label":"Nombre","default":"Camilo Amaya Mora"},{"id":"rol","type":"string","label":"Parte que explica","default":"Pregunta y arquitectura"},{"id":"acento","type":"color","label":"Color","default":"#ff5d84"}]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Outfit", sans-serif; }
+      #lt { position: absolute; left: 200px; top: 800px; }
+      #bar { position: absolute; left: 0; top: 0; width: 10px; height: 132px; border-radius: 5px; background: var(--acento); }
+      #card { position: absolute; left: 26px; top: 0; height: 132px; padding: 18px 34px 0 30px; border-radius: 18px; background: rgba(12, 16, 22, 0.86); white-space: nowrap; }
+      #nombre { font-size: 54px; font-weight: 600; color: #eef2f7; letter-spacing: -0.01em; }
+      #rol { font-family: "Inter", sans-serif; font-size: 30px; color: #c3ccd8; margin-top: 2px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="lt" class="clip" data-start="0" data-duration="6">
+        <div id="bar"></div>
+        <div id="card"><div id="nombre" data-var-text="nombre">Camilo Amaya Mora</div><div id="rol" data-var-text="rol">Pregunta y arquitectura</div></div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#bar", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.45, ease: "expo.out" }, 0.2);
+      tl.fromTo("#card", { opacity: 0, x: -40, clipPath: "inset(0 100% 0 0 round 18px)" }, { opacity: 1, x: 0, clipPath: "inset(0 0% 0 0 round 18px)", duration: 0.7, ease: "expo.out" }, 0.35);
+      tl.fromTo("#nombre", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" }, 0.55);
+      tl.fromTo("#rol", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.8);
+      tl.to(["#card", "#bar"], { opacity: 0, x: -20, duration: 0.3, ease: "power3.in" }, 5.5);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

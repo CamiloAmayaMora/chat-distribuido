@@ -1,0 +1,66 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s15-scene { position: absolute; inset: 0; }
+    #s15-k { left: 120px; top: 70px; }
+    #s15-svg { position: absolute; inset: 0; }
+    #s15-c { left: 810px; top: 450px; width: 300px; height: 170px; font-size: 44px; border-color: var(--ink); }
+    .s15-g { position: absolute; width: 470px; height: 190px; border-radius: 26px; background: var(--panel); border: 3px solid var(--line); padding: 30px 34px; }
+    .s15-g h4 { font-family: var(--font-display); font-size: 52px; font-weight: 600; }
+    .s15-g p { font-size: 30px; color: var(--muted); margin-top: 6px; }
+    .s15-ok { position: absolute; right: 26px; top: 30px; font-family: var(--font-mono); font-size: 30px; color: var(--ok); }
+    #s15-g1 { left: 150px; top: 160px; border-color: var(--ga); }
+    #s15-g2 { left: 1300px; top: 160px; border-color: var(--ga); }
+    #s15-g3 { left: 150px; top: 760px; border-color: var(--gb); }
+    #s15-g4 { left: 1300px; top: 760px; border-color: var(--warn); }
+    #s15-all { left: 0; right: 0; top: 660px; text-align: center; font-size: 46px; position: absolute; font-family: var(--font-display); font-weight: 600; color: var(--ok); }
+    .s15-f { position: absolute; left: 760px; width: 1020px; padding: 30px 36px; border-radius: 26px; background: var(--panel); border: 3px solid var(--bad); }
+    .s15-f h4 { font-family: var(--font-display); font-size: 44px; font-weight: 600; }
+    .s15-f p { font-size: 32px; color: var(--muted); margin-top: 10px; }
+    .s15-f b { color: var(--bad); font-weight: 600; }
+    #s15-f1 { top: 300px; } #s15-f2 { top: 600px; }
+    #s15-doc { left: 760px; top: 880px; font-size: 28px; }
+    #s15-tag { left: 120px; top: 560px; font-family: var(--font-display); font-size: 40px; color: var(--warn); position: absolute; }
+  </style>
+  <div id="root" data-composition-id="s15" data-width="1920" data-height="1080">
+    <div id="s15-scene" class="clip" data-start="0" data-duration="25">
+      <div id="s15-k" class="kicker">Ensayo de interoperabilidad · 4 grupos</div>
+      <svg id="s15-svg" viewBox="0 0 1920 1080">
+        <g stroke="#2a3442" stroke-width="5">
+          <line x1="960" y1="535" x2="620" y2="300" /><line x1="960" y1="535" x2="1300" y2="300" />
+          <line x1="960" y1="535" x2="620" y2="820" /><line x1="960" y1="535" x2="1300" y2="820" />
+        </g>
+      </svg>
+      <div id="s15-c" class="node">central</div>
+      <div id="s15-g1" class="s15-g"><h4>amaya</h4><p>el nuestro</p><div class="s15-ok">8/8 ✓</div></div>
+      <div id="s15-g2" class="s15-g"><h4>amaya2</h4><p>otra copia del nuestro</p><div class="s15-ok">8/8 ✓</div></div>
+      <div id="s15-g3" class="s15-g"><h4>ext1</h4><p>escrito aparte · correcto</p><div class="s15-ok">8/8 ✓</div></div>
+      <div id="s15-g4" class="s15-g"><h4>ext2</h4><p>escrito aparte · con errores</p><div class="s15-ok">8/8 ✓</div></div>
+      <div id="s15-all">Todos recibieron todo</div>
+      <div id="s15-tag">Hallazgos en ext2</div>
+      <div id="s15-doc" class="chip">detalle en docs/bitacora_interoperabilidad.md</div>
+      <div id="s15-f1" class="s15-f"><h4>Ordena por llegada</h4><p>→ ve <b>otro orden</b> que los demás grupos (no usa Lamport)</p></div>
+      <div id="s15-f2" class="s15-f"><h4>Guarda solo en memoria</h4><p>→ al reiniciarse <b>pierde su historial</b>: 0 de 8 mensajes</p></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s15-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#s15-c", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 0.4);
+    tl.fromTo("#s15-svg", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.8);
+    [["#s15-g1", 4.2], ["#s15-g2", 5.0], ["#s15-g3", 7.6], ["#s15-g4", 9.0]].forEach(([g, t]) => {
+      tl.fromTo(g, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, t);
+    });
+    tl.fromTo(".s15-ok", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.12 }, 10.8);
+    tl.fromTo("#s15-all", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" }, 11.0);
+    // foco en ext2
+    tl.to(["#s15-g1", "#s15-g2", "#s15-g3", "#s15-c", "#s15-svg", "#s15-all"], { opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 12.6);
+    tl.to("#s15-g4", { x: -1180, y: -440, borderColor: "#ff5c5c", duration: 0.8, ease: "power3.inOut" }, 12.7);
+    tl.fromTo("#s15-tag", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 13.4);
+    tl.fromTo("#s15-f1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 13.6);
+    tl.fromTo("#s15-f2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 17.2);
+    tl.fromTo("#s15-doc", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 20.8);
+    tl.to("#s15-scene", { opacity: 0, duration: 0.3, ease: "power2.in" }, 24.6);
+    window.__timelines["s15"] = tl;
+  </script>
+</template>

@@ -1,0 +1,89 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s10-scene { position: absolute; inset: 0; }
+    #s10-k { left: 120px; top: 70px; }
+    #s10-ga { left: 180px; top: 300px; width: 340px; height: 210px; font-size: 64px; border-color: var(--ga); }
+    #s10-c { left: 1400px; top: 300px; width: 340px; height: 210px; font-size: 48px; border-color: var(--ink); }
+    #s10-svg { position: absolute; inset: 0; }
+    #s10-lbl { left: 760px; top: 330px; font-family: var(--font-mono); font-size: 30px; color: var(--muted); position: absolute; }
+    #s10-st { left: 760px; top: 160px; }
+    #s10-pend { left: 205px; top: 540px; }
+    .s10-t { position: absolute; top: 620px; width: 110px; height: 110px; border-radius: 22px; background: var(--panel2); border: 3px solid var(--line); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 60px; font-weight: 700; }
+    .s10-t.ok { color: var(--ok); border-color: var(--ok); } .s10-t.no { color: var(--bad); border-color: var(--bad); }
+    #s10-t1 { left: 640px; } #s10-t2 { left: 770px; } #s10-t3 { left: 900px; } #s10-t4 { left: 1030px; } #s10-t5 { left: 1160px; }
+    #s10-three { left: 900px; top: 750px; font-family: var(--font-display); font-size: 34px; color: var(--bad); position: absolute; }
+    #s10-steps { position: absolute; left: 0; right: 0; top: 840px; display: flex; justify-content: center; gap: 28px; }
+    .s10-step { position: relative; height: 120px; padding: 0 30px; border-radius: 22px; background: var(--panel); border: 3px solid var(--ok); display: flex; align-items: center; gap: 18px; font-size: 34px; font-weight: 600; font-family: var(--font-display); }
+    .s10-step span { font-family: var(--font-mono); font-size: 26px; color: var(--muted); font-weight: 400; }
+    
+  </style>
+  <div id="root" data-composition-id="s10" data-width="1920" data-height="1080">
+    <div id="s10-scene" class="clip" data-start="0" data-duration="20">
+      <div id="s10-k" class="kicker">Detección de fallas · ¿sigue vivo el central?</div>
+      <svg id="s10-svg" viewBox="0 0 1920 1080">
+        <line x1="520" y1="405" x2="1400" y2="405" stroke="#2a3442" stroke-width="5" stroke-dasharray="14 12" />
+        <circle class="s10-ping" id="s10-q1" r="13" fill="#eef2f7" cx="520" cy="405" opacity="0" />
+        <circle class="s10-ping" id="s10-q2" r="13" fill="#eef2f7" cx="520" cy="405" opacity="0" />
+        <circle class="s10-ping" id="s10-q3" r="13" fill="#eef2f7" cx="520" cy="405" opacity="0" />
+        <circle class="s10-ping" id="s10-q4" r="13" fill="#eef2f7" cx="520" cy="405" opacity="0" />
+        <circle class="s10-ping" id="s10-q5" r="13" fill="#eef2f7" cx="520" cy="405" opacity="0" />
+      </svg>
+      <div id="s10-ga" class="node">ga</div>
+      <div id="s10-c" class="node">central</div>
+      <div id="s10-lbl">GET /health · cada 3 s</div>
+      <div id="s10-st" class="chip">estado: <b id="s10-stv" style="color: var(--ok)">CENTRAL OK</b></div>
+      <div id="s10-pend" class="chip">pendientes: <b id="s10-pv">0</b></div>
+      <div id="s10-t1" class="s10-t ok">✓</div>
+      <div id="s10-t2" class="s10-t ok">✓</div>
+      <div id="s10-t3" class="s10-t no">✗</div>
+      <div id="s10-t4" class="s10-t no">✗</div>
+      <div id="s10-t5" class="s10-t no">✗</div>
+      <div id="s10-three">3 fallos seguidos → caído</div>
+      <div id="s10-steps"><div id="s10-p1" class="s10-step">1 · Registrarse <span>POST /register</span></div>
+      <div id="s10-p2" class="s10-step">2 · Pedir lo perdido <span>GET /history</span></div>
+      <div id="s10-p3" class="s10-step">3 · Enviar lo pendiente</div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s10-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo(["#s10-ga", "#s10-c"], { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out", stagger: 0.12 }, 0.2);
+    tl.fromTo(["#s10-lbl", "#s10-st", "#s10-pend"], { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.1 }, 0.6);
+    // pings que sí responden
+    [["#s10-q1", 1.0, "#s10-t1"], ["#s10-q2", 2.2, "#s10-t2"]].forEach(([q, t, tick]) => {
+      tl.set(q, { opacity: 1 }, t); tl.fromTo(q, { attr: { cx: 520 } }, { attr: { cx: 1400 }, duration: 0.55, ease: "power1.inOut" }, t);
+      tl.to(q, { attr: { cx: 520 }, fill: "#34c3a9", duration: 0.45, ease: "power1.inOut" }, t + 0.55);
+      tl.to(q, { opacity: 0, duration: 0.1 }, t + 1.0);
+      tl.fromTo(tick, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, t + 0.95);
+    });
+
+    // el central se cae
+    tl.to("#s10-c", { opacity: 0.3, borderColor: "#ff5c5c", duration: 0.3 }, 3.4);
+    [["#s10-q3", 3.7, "#s10-t3"], ["#s10-q4", 4.6, "#s10-t4"], ["#s10-q5", 5.5, "#s10-t5"]].forEach(([q, t, tick]) => {
+      tl.set(q, { opacity: 1 }, t); tl.fromTo(q, { attr: { cx: 520 } }, { attr: { cx: 1300 }, duration: 0.55, ease: "power1.out" }, t);
+      tl.to(q, { opacity: 0, fill: "#ff5c5c", duration: 0.25 }, t + 0.5);
+      tl.fromTo(tick, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, t + 0.6);
+    });
+    tl.fromTo("#s10-three", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25 }, 6.2);
+    tl.set("#s10-stv", { textContent: "CENTRAL_DOWN", color: "#ff5c5c" }, 6.2);
+    tl.fromTo("#s10-st", { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 6.2);
+    tl.set("#s10-pv", { textContent: "1" }, 6.9);
+    tl.set("#s10-pv", { textContent: "2" }, 7.4);
+    tl.set("#s10-pv", { textContent: "3" }, 7.9);
+    tl.to("#s10-pend", { borderColor: "#f5b748", duration: 0.2 }, 6.9);
+    // vuelve: recuperación en tres pasos
+    tl.to("#s10-c", { opacity: 1, borderColor: "#eef2f7", duration: 0.35 }, 8.6);
+    tl.set("#s10-stv", { textContent: "CENTRAL_UP", color: "#34c3a9" }, 8.6);
+    tl.to([".s10-t", "#s10-three"], { opacity: 0.25, duration: 0.3 }, 8.8);
+    tl.fromTo("#s10-p1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 9.0);
+    tl.fromTo("#s10-p2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 11.2);
+    tl.fromTo("#s10-p3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 14.0);
+    tl.set("#s10-pv", { textContent: "2" }, 14.6);
+    tl.set("#s10-pv", { textContent: "1" }, 14.9);
+    tl.set("#s10-pv", { textContent: "0" }, 15.2);
+    tl.to("#s10-pend", { borderColor: "#34c3a9", duration: 0.2 }, 15.2);
+    tl.to("#s10-scene", { opacity: 0, duration: 0.3, ease: "power2.in" }, 19.6);
+    window.__timelines["s10"] = tl;
+  </script>
+</template>
