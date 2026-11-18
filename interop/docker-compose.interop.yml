@@ -1,0 +1,56 @@
+# Ensayo de la sesión de interoperabilidad (sección 7 del enunciado).
+# Un central simulado y cuatro "grupos":
+#   amaya  -> NUESTRO servidor (puerto 8101)
+#   amaya2 -> otra copia del nuestro (puerto 8102), como si fuera otro grupo con la misma implementación
+#   ext1   -> implementación AJENA correcta   (puerto 8103)
+#   ext2   -> implementación AJENA con errores típicos (puerto 8104)
+#
+#   docker compose -f interop/docker-compose.interop.yml up -d --build
+#   python interop/run_interop.py
+x-ours: &ours
+  build: ../server
+  image: chat-distribuido/server:latest
+  depends_on: [central]
+  networks: [sala]
+
+x-foreign: &foreign
+  build: ./foreign
+  image: chat-distribuido/foreign:latest
+  depends_on: [central]
+  networks: [sala]
+
+services:
+  central:
+    build: ../central-mock
+    image: chat-distribuido/central-mock:latest
+    ports: ["9100:9000"]
+    networks: [sala]
+
+  amaya:
+    <<: *ours
+    environment: {GROUP_NAME: amaya, PUBLIC_URL: "http://amaya:8000", CENTRAL_URL: "http://central:9000", HEARTBEAT_INTERVAL: "2"}
+    ports: ["8101:8000"]
+    volumes: [amaya-data:/data]
+
+  amaya2:
+    <<: *ours
+    environment: {GROUP_NAME: amaya2, PUBLIC_URL: "http://amaya2:8000", CENTRAL_URL: "http://central:9000", HEARTBEAT_INTERVAL: "2"}
+    ports: ["8102:8000"]
+    volumes: [amaya2-data:/data]
+
+  ext1:
+    <<: *foreign
+    environment: {GROUP_NAME: ext1, PUBLIC_URL: "http://ext1:8000", CENTRAL_URL: "http://central:9000", BUGGY: "0"}
+    ports: ["8103:8000"]
+
+  ext2:
+    <<: *foreign
+    environment: {GROUP_NAME: ext2, PUBLIC_URL: "http://ext2:8000", CENTRAL_URL: "http://central:9000", BUGGY: "1"}
+    ports: ["8104:8000"]
+
+volumes:
+  amaya-data:
+  amaya2-data:
+
+networks:
+  sala:

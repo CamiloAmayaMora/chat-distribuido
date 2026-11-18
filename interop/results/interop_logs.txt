@@ -1,0 +1,432 @@
+2026-11-18T00:14:55.059Z central REGISTER       server=ext2 url=http://ext2:8000
+2026-11-18T00:14:55.294Z amaya STARTUP        central=http://central:9000 public_url=http://amaya:8000 clock=0 messages=0 pending=0
+2026-11-18T00:14:55.369Z amaya REGISTERED     url=http://amaya:8000 status=200
+00:14:55.064 ext1 escuchando en :8000 
+00:14:54.952 ext2 escuchando en :8000 (BUGGY)
+00:14:58.557 ext2 RECIBIDO 6280855e L 1
+00:14:58.832 ext2 RECIBIDO a19406de L 3
+00:14:59.073 ext2 500 simulado 199c007b
+00:14:59.564 ext2 ENVIADO 2ca45082
+2026-11-18T00:14:55.066Z central REGISTER       server=ext1 url=http://ext1:8000
+2026-11-18T00:14:55.366Z central REGISTER       server=amaya url=http://amaya:8000
+00:14:59.580 ext2 500 simulado 199c007b
+2026-11-18T00:14:55.369Z amaya HISTORY_REQUEST since=0 reason=startup
+00:14:59.764 ext2 RECIBIDO 027158ef L 8
+2026-11-18T00:14:55.374Z amaya HISTORY_DONE   since=0 new=0 already_had=0
+2026-11-18T00:14:58.369Z amaya USER_CREATED   user=useramaya@amaya
+00:14:58.558 ext1 RECIBIDO 6280855e L 1
+00:14:58.831 ext1 RECIBIDO a19406de L 3
+2026-11-18T00:14:55.827Z central REGISTER       server=amaya2 url=http://amaya2:8000
+/srv/foreign_server.py:97: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+2026-11-18T00:14:58.551Z central STORED         id=6280855e origin=amaya lamport=1
+2026-11-18T00:14:58.560Z central FORWARDED      id=6280855e to=ext2 status=200
+2026-11-18T00:14:58.560Z central FORWARDED      id=6280855e to=ext1 status=200
+2026-11-18T00:14:58.374Z amaya LOCAL_MESSAGE  id=6280855e lamport=1 user=useramaya@amaya
+2026-11-18T00:14:58.565Z central FORWARDED      id=6280855e to=amaya2 status=200
+2026-11-18T00:14:58.823Z central STORED         id=a19406de origin=amaya2 lamport=3
+2026-11-18T00:14:58.552Z amaya SENT           id=6280855e lamport=1 status=200 attempt=1
+  "sent_at": datetime.now().strftime("%d/%m/%Y %H:%M") if BUGGY else datetime.utcnow().isoformat() + "Z",
+2026-11-18T00:14:58.835Z amaya RECEIVED       id=a19406de lamport=3 origin=amaya2 clock=4
+2026-11-18T00:14:59.073Z amaya RECEIVED       id=199c007b lamport=5 origin=ext1 clock=6
+2026-11-18T00:14:59.566Z amaya RECEIVED       id=2ca45082 lamport=5 origin=ext2 clock=7
+00:15:00.037 ext2 RECIBIDO 3a3b3e90 L 10
+00:15:00.576 ext2 RECIBIDO 4e9687a4 L 12
+00:15:00.587 ext2 RECIBIDO 199c007b L 5
+00:15:01.067 ext2 ENVIADO 8d515e00
+00:15:08.657 ext2 RECIBIDO 25fda451 L 17
+00:15:08.663 ext2 500 simulado 5ec2a203
+00:15:09.075 ext2 ENVIADO 71ab1897
+2026-11-18T00:14:59.670Z amaya LOCAL_MESSAGE  id=027158ef lamport=8 user=useramaya@amaya
+00:14:59.070 ext1 ENVIADO 199c007b
+2026-11-18T00:14:59.760Z amaya SENT           id=027158ef lamport=8 status=200 attempt=1
+2026-11-18T00:15:00.033Z amaya RECEIVED       id=3a3b3e90 lamport=10 origin=amaya2 clock=11
+2026-11-18T00:15:00.575Z amaya RECEIVED       id=4e9687a4 lamport=12 origin=ext1 clock=13
+00:14:59.566 ext1 RECIBIDO 2ca45082 L 5
+2026-11-18T00:14:55.767Z amaya2 STARTUP        central=http://central:9000 public_url=http://amaya2:8000 clock=0 messages=0 pending=0
+00:14:59.765 ext1 RECIBIDO 027158ef L 8
+00:15:00.037 ext1 RECIBIDO 3a3b3e90 L 10
+2026-11-18T00:14:58.834Z central FORWARDED      id=a19406de to=ext1 status=200
+2026-11-18T00:14:58.834Z central FORWARDED      id=a19406de to=ext2 status=200
+2026-11-18T00:14:58.838Z central FORWARDED      id=a19406de to=amaya status=200
+2026-11-18T00:14:59.070Z central STORED         id=199c007b origin=ext1 lamport=5
+2026-11-18T00:14:59.074Z central FORWARDED      id=199c007b to=amaya status=200
+2026-11-18T00:14:59.075Z central FORWARDED      id=199c007b to=amaya2 status=200
+00:15:00.573 ext1 ENVIADO 4e9687a4
+2026-11-18T00:14:59.563Z central STORED         id=2ca45082 origin=ext2 lamport=5
+00:15:01.071 ext1 RECIBIDO 8d515e00 L 15
+2026-11-18T00:14:59.567Z central FORWARDED      id=2ca45082 to=amaya status=200
+2026-11-18T00:14:55.829Z amaya2 REGISTERED     url=http://amaya2:8000 status=200
+2026-11-18T00:14:55.829Z amaya2 HISTORY_REQUEST since=0 reason=startup
+00:15:08.656 ext1 RECIBIDO 25fda451 L 17
+00:15:09.077 ext2 ENVIADO 94d1b23a
+00:15:08.665 ext1 RECIBIDO 5ec2a203 L 18
+00:15:09.079 ext2 ENVIADO 47208d75
+00:15:09.081 ext1 ENVIADO e5a6a34e
+00:15:16.682 ext2 RECIBIDO 8129a777 L 19
+00:15:09.082 ext1 ENVIADO cc13804d
+2026-11-18T00:15:01.070Z amaya RECEIVED       id=8d515e00 lamport=15 origin=ext2 clock=16
+2026-11-18T00:15:16.313Z amaya STARTUP        central=http://central:9000 public_url=http://amaya:8000 clock=16 messages=8 pending=0
+2026-11-18T00:15:16.371Z amaya REGISTERED     url=http://amaya:8000 status=200
+2026-11-18T00:15:16.372Z amaya HISTORY_REQUEST since=0 reason=startup
+2026-11-18T00:14:55.831Z amaya2 HISTORY_DONE   since=0 new=0 already_had=0
+2026-11-18T00:14:58.562Z amaya2 RECEIVED       id=6280855e lamport=1 origin=amaya clock=2
+2026-11-18T00:14:58.680Z amaya2 USER_CREATED   user=useramaya2@amaya2
+2026-11-18T00:15:16.376Z amaya RECOVERED      id=71ab1897 lamport=16 origin=ext2 clock=17
+2026-11-18T00:14:58.703Z amaya2 LOCAL_MESSAGE  id=a19406de lamport=3 user=useramaya2@amaya2
+2026-11-18T00:15:16.376Z amaya RECOVERED      id=25fda451 lamport=17 origin=amaya2 clock=18
+2026-11-18T00:14:59.567Z central FORWARDED      id=2ca45082 to=amaya2 status=200
+00:15:09.090 ext1 ENVIADO d3ce880a
+2026-11-18T00:14:58.826Z amaya2 SENT           id=a19406de lamport=3 status=200 attempt=1
+00:15:16.678 ext1 RECIBIDO 8129a777 L 19
+00:15:16.690 ext1 RECIBIDO 71ab1897 L 16
+00:15:16.697 ext1 RECIBIDO 94d1b23a L 19
+00:15:16.701 ext1 RECIBIDO 47208d75 L 20
+00:15:16.702 ext2 RECIBIDO e5a6a34e L 17
+2026-11-18T00:14:59.568Z central FORWARDED      id=2ca45082 to=ext1 status=200
+2026-11-18T00:14:59.759Z central STORED         id=027158ef origin=amaya lamport=8
+2026-11-18T00:14:59.766Z central FORWARDED      id=027158ef to=amaya2 status=200
+2026-11-18T00:14:59.073Z amaya2 RECEIVED       id=199c007b lamport=5 origin=ext1 clock=6
+2026-11-18T00:14:59.566Z amaya2 RECEIVED       id=2ca45082 lamport=5 origin=ext2 clock=7
+2026-11-18T00:14:59.763Z amaya2 RECEIVED       id=027158ef lamport=8 origin=amaya clock=9
+00:15:16.703 ext2 RECIBIDO cc13804d L 18
+2026-11-18T00:15:16.376Z amaya RECOVERED      id=e5a6a34e lamport=17 origin=ext1 clock=19
+00:15:16.708 ext2 RECIBIDO d3ce880a L 21
+00:15:26.110 ext2 RECIBIDO 18bf6992 L 26
+00:15:26.179 ext2 RECIBIDO 9f503f75 L 26
+00:15:26.593 ext2 ENVIADO 793b66f2
+00:15:26.595 ext2 ENVIADO 876337c4
+00:15:26.598 ext2 ENVIADO 62687349
+00:15:34.124 ext2 RECIBIDO 11fc6218 L 28
+2026-11-18T00:14:59.767Z central FORWARDED      id=027158ef to=ext2 status=200
+2026-11-18T00:14:59.767Z central FORWARDED      id=027158ef to=ext1 status=200
+2026-11-18T00:14:59.999Z amaya2 LOCAL_MESSAGE  id=3a3b3e90 lamport=10 user=useramaya2@amaya2
+2026-11-18T00:15:00.029Z central STORED         id=3a3b3e90 origin=amaya2 lamport=10
+2026-11-18T00:15:00.037Z central FORWARDED      id=3a3b3e90 to=amaya status=200
+2026-11-18T00:15:00.040Z central FORWARDED      id=3a3b3e90 to=ext2 status=200
+2026-11-18T00:15:00.031Z amaya2 SENT           id=3a3b3e90 lamport=10 status=200 attempt=1
+00:15:26.104 ext1 ENVIADO 18bf6992
+00:15:26.179 ext1 RECIBIDO 9f503f75 L 26
+00:15:34.129 ext2 RECIBIDO 401ff458 L 29
+00:15:34.140 ext2 RECIBIDO f5d441f0 L 27
+00:15:34.143 ext2 RECIBIDO ebe960ea L 29
+2026-11-18T00:15:16.376Z amaya RECOVERED      id=5ec2a203 lamport=18 origin=amaya2 clock=20
+2026-11-18T00:15:16.377Z amaya RECOVERED      id=cc13804d lamport=18 origin=ext1 clock=21
+2026-11-18T00:15:16.377Z amaya RECOVERED      id=8129a777 lamport=19 origin=amaya2 clock=22
+2026-11-18T00:15:16.377Z amaya RECOVERED      id=94d1b23a lamport=19 origin=ext2 clock=23
+2026-11-18T00:15:16.377Z amaya RECOVERED      id=47208d75 lamport=20 origin=ext2 clock=24
+2026-11-18T00:15:16.377Z amaya RECOVERED      id=d3ce880a lamport=21 origin=ext1 clock=25
+2026-11-18T00:15:16.377Z amaya HISTORY_DONE   since=0 new=9 already_had=8
+2026-11-18T00:15:16.678Z amaya DUPLICATE      id=25fda451 lamport=17 origin=amaya2
+2026-11-18T00:15:16.682Z amaya DUPLICATE      id=5ec2a203 lamport=18 origin=amaya2
+2026-11-18T00:15:16.688Z amaya DUPLICATE      id=8129a777 lamport=19 origin=amaya2
+00:15:26.608 ext1 ENVIADO f5d441f0
+2026-11-18T00:15:00.575Z amaya2 RECEIVED       id=4e9687a4 lamport=12 origin=ext1 clock=13
+00:15:26.611 ext1 ENVIADO ebe960ea
+2026-11-18T00:15:01.070Z amaya2 RECEIVED       id=8d515e00 lamport=15 origin=ext2 clock=16
+00:15:34.126 ext1 RECIBIDO 11fc6218 L 28
+2026-11-18T00:15:08.585Z amaya2 LOCAL_MESSAGE  id=25fda451 lamport=17 user=useramaya2@amaya2
+00:15:34.132 ext1 RECIBIDO 401ff458 L 29
+2026-11-18T00:15:16.690Z amaya DUPLICATE      id=71ab1897 lamport=16 origin=ext2
+00:15:34.132 ext1 RECIBIDO 793b66f2 L 25
+00:15:43.511 ext2 500 simulado 3264bf07
+00:15:43.610 ext2 ENVIADO 896037a5
+00:15:43.613 ext2 ENVIADO b20150c3
+2026-11-18T00:15:08.624Z amaya2 LOCAL_MESSAGE  id=5ec2a203 lamport=18 user=useramaya2@amaya2
+2026-11-18T00:15:08.651Z amaya2 SENT           id=25fda451 lamport=17 status=200 attempt=1
+2026-11-18T00:15:08.654Z amaya2 SENT           id=5ec2a203 lamport=18 status=200 attempt=1
+00:15:43.619 ext2 ENVIADO 6f128fdc
+00:15:51.404 ext2 500 simulado c611742f
+00:15:51.40800:15:51.408  ext2 RECIBIDO fa4c1070 L 38
+ext2 RECIBIDO 2e70490c L 37
+00:15:34.135 ext1 RECIBIDO 876337c4 L 28
+2026-11-18T00:15:08.676Z amaya2 LOCAL_MESSAGE  id=8129a777 lamport=19 user=useramaya2@amaya2
+00:15:34.138 ext1 RECIBIDO 62687349 L 30
+00:15:51.149 ext1 escuchando en :8000 
+00:15:51.380 ext1 DUPLICADO 3264bf07 L 35
+00:15:51.382 ext1 DUPLICADO 896037a5 L 35
+00:15:51.41300:15:51.413 ext2 500 simulado 125dd97a
+ ext2 RECIBIDO 9625f327 L 36
+2026-11-18T00:15:00.040Z central FORWARDED      id=3a3b3e90 to=ext1 status=200
+2026-11-18T00:15:08.856Z amaya2 SENT           id=8129a777 lamport=19 status=200 attempt=1
+2026-11-18T00:15:00.573Z central STORED         id=4e9687a4 origin=ext1 lamport=12
+2026-11-18T00:15:00.576Z central FORWARDED      id=4e9687a4 to=amaya2 status=200
+2026-11-18T00:15:16.727Z amaya DUPLICATE      id=94d1b23a lamport=19 origin=ext2
+2026-11-18T00:15:00.577Z central FORWARDED      id=4e9687a4 to=amaya status=200
+2026-11-18T00:15:00.577Z central FORWARDED      id=4e9687a4 to=ext2 status=200
+2026-11-18T00:15:16.728Z amaya DUPLICATE      id=e5a6a34e lamport=17 origin=ext1
+2026-11-18T00:15:16.729Z amaya DUPLICATE      id=cc13804d lamport=18 origin=ext1
+00:15:51.394 ext1 DUPLICADO b20150c3 L 36
+00:16:08.150 ext2 escuchando en :8000 (BUGGY)
+00:15:51.401 ext1 DUPLICADO 6f128fdc L 37
+00:16:08.973 ext2 RECIBIDO 0c6f61be L 44
+00:15:51.408 ext1 DUPLICADO c611742f L 35
+00:16:08.976 ext2 RECIBIDO 78349f60 L 44
+00:15:51.408 ext1 DUPLICADO 2e70490c L 37
+00:16:08.984 ext2 RECIBIDO 157a6a83 L 46
+00:15:51.412 ext1 DUPLICADO fa4c1070 L 38
+00:16:08.988 ext2 RECIBIDO 9a426512 L 47
+00:16:08.990 ext2 RECIBIDO 03b2bd53 L 45
+2026-11-18T00:15:16.699Z amaya2 RECEIVED       id=71ab1897 lamport=16 origin=ext2 clock=20
+2026-11-18T00:15:16.730Z amaya DUPLICATE      id=47208d75 lamport=20 origin=ext2
+2026-11-18T00:15:16.701Z amaya2 RECEIVED       id=94d1b23a lamport=19 origin=ext2 clock=21
+00:16:08.994 ext2 RECIBIDO 61996b75 L 45
+2026-11-18T00:15:16.703Z amaya2 RECEIVED       id=47208d75 lamport=20 origin=ext2 clock=22
+2026-11-18T00:15:00.590Z central FORWARDED      id=199c007b to=ext2 status=200
+2026-11-18T00:15:01.066Z central STORED         id=8d515e00 origin=ext2 lamport=15
+2026-11-18T00:15:01.072Z central FORWARDED      id=8d515e00 to=amaya2 status=200
+00:15:51.413 ext1 DUPLICADO 9625f327 L 36
+2026-11-18T00:15:01.072Z central FORWARDED      id=8d515e00 to=amaya status=200
+2026-11-18T00:15:16.730Z amaya DUPLICATE      id=d3ce880a lamport=21 origin=ext1
+2026-11-18T00:15:01.072Z central FORWARDED      id=8d515e00 to=ext1 status=200
+2026-11-18T00:15:08.649Z central STORED         id=25fda451 origin=amaya2 lamport=17
+00:16:08.997 ext2 RECIBIDO 6b8b95dc L 46
+00:16:08.998 ext2 RECIBIDO 7225195d L 47
+2026-11-18T00:15:16.706Z amaya2 RECEIVED       id=e5a6a34e lamport=17 origin=ext1 clock=23
+00:16:09.002 ext2 RECIBIDO 54b1c10a L 48
+2026-11-18T00:15:16.709Z amaya2 RECEIVED       id=d3ce880a lamport=21 origin=ext1 clock=24
+2026-11-18T00:15:16.711Z amaya2 RECEIVED       id=cc13804d lamport=18 origin=ext1 clock=25
+2026-11-18T00:15:26.090Z amaya LOCAL_MESSAGE  id=9f503f75 lamport=26 user=useramaya@amaya
+2026-11-18T00:15:08.652Z central STORED         id=5ec2a203 origin=amaya2 lamport=18
+2026-11-18T00:15:08.660Z central FORWARDED      id=25fda451 to=ext1 status=200
+2026-11-18T00:15:26.110Z amaya RECEIVED       id=18bf6992 lamport=26 origin=ext1 clock=27
+2026-11-18T00:15:33.840Z amaya2 STARTUP        central=http://central:9000 public_url=http://amaya2:8000 clock=25 messages=17 pending=0
+2026-11-18T00:15:33.892Z amaya2 REGISTERED     url=http://amaya2:8000 status=200
+00:15:51.416 ext1 DUPLICADO 125dd97a L 37
+2026-11-18T00:15:33.893Z amaya2 HISTORY_REQUEST since=0 reason=startup
+2026-11-18T00:15:08.661Z central FORWARDED      id=25fda451 to=ext2 status=200
+/srv/foreign_server.py:97: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+2026-11-18T00:15:33.897Z amaya2 RECOVERED      id=793b66f2 lamport=25 origin=ext2 clock=26
+2026-11-18T00:15:33.897Z amaya2 RECOVERED      id=9f503f75 lamport=26 origin=amaya clock=27
+2026-11-18T00:15:26.136Z amaya LOCAL_MESSAGE  id=11fc6218 lamport=28 user=useramaya@amaya
+2026-11-18T00:15:08.669Z central FORWARDED      id=5ec2a203 to=ext1 status=200
+2026-11-18T00:15:26.174Z amaya SENT           id=9f503f75 lamport=26 status=200 attempt=1
+2026-11-18T00:15:33.898Z amaya2 RECOVERED      id=18bf6992 lamport=26 origin=ext1 clock=28
+2026-11-18T00:15:26.176Z amaya SENT           id=11fc6218 lamport=28 status=200 attempt=1
+2026-11-18T00:15:08.855Z central STORED         id=8129a777 origin=amaya2 lamport=19
+  "sent_at": datetime.now().strftime("%d/%m/%Y %H:%M") if BUGGY else datetime.utcnow().isoformat() + "Z",
+00:16:00.960 ext1 RECIBIDO 0c6f61be L 44
+2026-11-18T00:15:26.182Z amaya LOCAL_MESSAGE  id=401ff458 lamport=29 user=useramaya@amaya
+2026-11-18T00:15:33.898Z amaya2 RECOVERED      id=f5d441f0 lamport=27 origin=ext1 clock=29
+2026-11-18T00:15:26.379Z amaya SENT           id=401ff458 lamport=29 status=200 attempt=1
+2026-11-18T00:15:26.595Z amaya RECEIVED       id=793b66f2 lamport=25 origin=ext2 clock=30
+2026-11-18T00:15:33.899Z amaya2 RECOVERED      id=11fc6218 lamport=28 origin=amaya clock=30
+2026-11-18T00:15:09.075Z central STORED         id=71ab1897 origin=ext2 lamport=16
+2026-11-18T00:15:33.901Z amaya2 RECOVERED      id=876337c4 lamport=28 origin=ext2 clock=31
+2026-11-18T00:15:09.077Z central STORED         id=94d1b23a origin=ext2 lamport=19
+2026-11-18T00:15:26.600Z amaya RECEIVED       id=62687349 lamport=30 origin=ext2 clock=31
+2026-11-18T00:15:26.612Z amaya RECEIVED       id=f5d441f0 lamport=27 origin=ext1 clock=32
+2026-11-18T00:15:34.136Z amaya RECEIVED       id=876337c4 lamport=28 origin=ext2 clock=33
+2026-11-18T00:15:09.079Z central STORED         id=47208d75 origin=ext2 lamport=20
+2026-11-18T00:15:34.144Z amaya RECEIVED       id=ebe960ea lamport=29 origin=ext1 clock=34
+2026-11-18T00:15:33.901Z amaya2 RECOVERED      id=401ff458 lamport=29 origin=amaya clock=32
+2026-11-18T00:15:43.443Z amaya LOCAL_MESSAGE  id=c611742f lamport=35 user=useramaya@amaya
+2026-11-18T00:15:33.901Z amaya2 RECOVERED      id=ebe960ea lamport=29 origin=ext1 clock=33
+2026-11-18T00:15:43.511Z amaya RECEIVED       id=3264bf07 lamport=35 origin=amaya2 clock=36
+2026-11-18T00:15:33.902Z amaya2 RECOVERED      id=62687349 lamport=30 origin=ext2 clock=34
+2026-11-18T00:15:43.517Z amaya LOCAL_MESSAGE  id=2e70490c lamport=37 user=useramaya@amaya
+2026-11-18T00:15:33.902Z amaya2 HISTORY_DONE   since=0 new=9 already_had=17
+00:16:01.156 ext1 ENVIADO 03b2bd53
+00:16:01.165 ext1 ENVIADO 7225195d
+2026-11-18T00:15:43.568Z amaya LOCAL_MESSAGE  id=fa4c1070 lamport=38 user=useramaya@amaya
+2026-11-18T00:15:43.614Z amaya RECEIVED       id=896037a5 lamport=35 origin=ext2 clock=39
+2026-11-18T00:15:09.080Z central STORED         id=e5a6a34e origin=ext1 lamport=17
+2026-11-18T00:15:43.628Z amaya RECEIVED       id=6f128fdc lamport=37 origin=ext2 clock=40
+2026-11-18T00:15:09.082Z central STORED         id=cc13804d origin=ext1 lamport=18
+2026-11-18T00:15:09.088Z central STORED         id=d3ce880a origin=ext1 lamport=21
+2026-11-18T00:15:16.704Z central FORWARDED      id=25fda451 to=amaya status=200
+2026-11-18T00:15:16.705Z central FORWARDED      id=5ec2a203 to=amaya status=200
+2026-11-18T00:15:16.705Z central FORWARDED      id=8129a777 to=ext1 status=200
+00:16:01.171 ext1 ENVIADO 54b1c10a
+00:16:08.980 ext1 RECIBIDO 78349f60 L 44
+00:16:08.984 ext1 RECIBIDO 157a6a83 L 46
+2026-11-18T00:15:43.632Z amaya SENT           id=c611742f lamport=35 status=200 attempt=1
+2026-11-18T00:15:43.648Z amaya SENT           id=2e70490c lamport=37 status=200 attempt=1
+00:16:08.989 ext1 RECIBIDO 9a426512 L 47
+00:16:08.994 ext1 RECIBIDO 61996b75 L 45
+00:16:08.997 ext1 RECIBIDO 6b8b95dc L 46
+2026-11-18T00:15:34.125Z amaya2 DUPLICATE      id=18bf6992 lamport=26 origin=ext1
+2026-11-18T00:15:34.126Z amaya2 DUPLICATE      id=9f503f75 lamport=26 origin=amaya
+2026-11-18T00:15:16.706Z central FORWARDED      id=8129a777 to=amaya status=200
+2026-11-18T00:15:16.709Z central FORWARDED      id=8129a777 to=ext2 status=200
+2026-11-18T00:15:16.709Z central FORWARDED      id=71ab1897 to=amaya status=200
+2026-11-18T00:15:16.712Z central FORWARDED      id=71ab1897 to=ext1 status=200
+2026-11-18T00:15:16.712Z central FORWARDED      id=94d1b23a to=amaya2 status=200
+2026-11-18T00:15:34.128Z amaya2 DUPLICATE      id=11fc6218 lamport=28 origin=amaya
+2026-11-18T00:15:16.712Z central FORWARDED      id=71ab1897 to=amaya2 status=200
+2026-11-18T00:15:34.132Z amaya2 DUPLICATE      id=401ff458 lamport=29 origin=amaya
+2026-11-18T00:15:43.658Z amaya SENT           id=fa4c1070 lamport=38 status=200 attempt=1
+2026-11-18T00:15:16.715Z central FORWARDED      id=94d1b23a to=ext1 status=200
+2026-11-18T00:15:16.715Z central FORWARDED      id=47208d75 to=amaya2 status=200
+2026-11-18T00:15:43.711Z amaya RECEIVED       id=9625f327 lamport=36 origin=amaya2 clock=41
+2026-11-18T00:15:51.399Z amaya RECEIVED       id=b20150c3 lamport=36 origin=ext2 clock=42
+2026-11-18T00:15:51.417Z amaya RECEIVED       id=125dd97a lamport=37 origin=amaya2 clock=43
+2026-11-18T00:16:00.931Z amaya LOCAL_MESSAGE  id=78349f60 lamport=44 user=useramaya@amaya
+2026-11-18T00:16:00.961Z amaya RECEIVED       id=0c6f61be lamport=44 origin=amaya2 clock=45
+2026-11-18T00:15:16.715Z central FORWARDED      id=e5a6a34e to=amaya2 status=200
+2026-11-18T00:15:16.717Z central FORWARDED      id=47208d75 to=ext1 status=200
+2026-11-18T00:15:16.717Z central FORWARDED      id=e5a6a34e to=ext2 status=200
+2026-11-18T00:16:00.968Z amaya LOCAL_MESSAGE  id=157a6a83 lamport=46 user=useramaya@amaya
+2026-11-18T00:16:00.996Z amaya LOCAL_MESSAGE  id=9a426512 lamport=47 user=useramaya@amaya
+2026-11-18T00:15:34.136Z amaya2 DUPLICATE      id=793b66f2 lamport=25 origin=ext2
+2026-11-18T00:16:01.096Z amaya SENT           id=78349f60 lamport=44 status=200 attempt=1
+2026-11-18T00:16:01.098Z amaya SENT           id=157a6a83 lamport=46 status=200 attempt=1
+2026-11-18T00:16:01.100Z amaya SENT           id=9a426512 lamport=47 status=200 attempt=1
+2026-11-18T00:15:34.169Z amaya2 DUPLICATE      id=876337c4 lamport=28 origin=ext2
+2026-11-18T00:15:34.170Z amaya2 DUPLICATE      id=f5d441f0 lamport=27 origin=ext1
+2026-11-18T00:16:01.166Z amaya RECEIVED       id=03b2bd53 lamport=45 origin=ext1 clock=48
+2026-11-18T00:15:34.171Z amaya2 DUPLICATE      id=62687349 lamport=30 origin=ext2
+2026-11-18T00:16:09.000Z amaya RECEIVED       id=61996b75 lamport=45 origin=amaya2 clock=49
+2026-11-18T00:16:09.001Z amaya RECEIVED       id=6b8b95dc lamport=46 origin=amaya2 clock=50
+2026-11-18T00:16:09.002Z amaya RECEIVED       id=7225195d lamport=47 origin=ext1 clock=51
+2026-11-18T00:15:34.172Z amaya2 DUPLICATE      id=ebe960ea lamport=29 origin=ext1
+2026-11-18T00:16:09.003Z amaya RECEIVED       id=54b1c10a lamport=48 origin=ext1 clock=52
+2026-11-18T00:15:43.471Z amaya2 LOCAL_MESSAGE  id=3264bf07 lamport=35 user=useramaya2@amaya2
+2026-11-18T00:15:16.717Z central FORWARDED      id=cc13804d to=ext2 status=200
+2026-11-18T00:15:43.505Z amaya2 SENT           id=3264bf07 lamport=35 status=200 attempt=1
+2026-11-18T00:15:43.548Z amaya2 LOCAL_MESSAGE  id=9625f327 lamport=36 user=useramaya2@amaya2
+2026-11-18T00:16:16.433Z amaya RECEIVED       id=f0adccdc lamport=42 origin=ext9 clock=53
+2026-11-18T00:16:16.438Z amaya RECEIVED       id=405415a7 lamport=5 origin=ext9 clock=54
+2026-11-18T00:16:16.460Z amaya RECEIVED       id=a5f447ab lamport=5 origin=ext9 clock=55
+2026-11-18T00:15:43.577Z amaya2 LOCAL_MESSAGE  id=125dd97a lamport=37 user=useramaya2@amaya2
+2026-11-18T00:15:43.709Z amaya2 SENT           id=9625f327 lamport=36 status=200 attempt=1
+2026-11-18T00:15:16.718Z central FORWARDED      id=cc13804d to=amaya2 status=200
+2026-11-18T00:16:16.475Z amaya RECEIVED       id=c79017de lamport=5 origin=ext9 clock=56
+2026-11-18T00:16:16.480Z amaya INVALID_REQUEST path=/fed/messages
+2026-11-18T00:15:43.712Z amaya2 SENT           id=125dd97a lamport=37 status=200 attempt=1
+2026-11-18T00:16:16.506Z amaya INVALID_REQUEST path=/fed/messages
+2026-11-18T00:16:16.511Z amaya INVALID_REQUEST path=/fed/messages
+2026-11-18T00:15:51.389Z amaya2 RECEIVED       id=896037a5 lamport=35 origin=ext2 clock=38
+2026-11-18T00:16:16.516Z amaya INVALID_REQUEST path=/fed/messages
+2026-11-18T00:15:16.718Z central FORWARDED      id=d3ce880a to=amaya2 status=200
+2026-11-18T00:15:51.402Z amaya2 RECEIVED       id=b20150c3 lamport=36 origin=ext2 clock=39
+2026-11-18T00:15:16.718Z central FORWARDED      id=d3ce880a to=ext2 status=200
+2026-11-18T00:15:51.406Z amaya2 RECEIVED       id=6f128fdc lamport=37 origin=ext2 clock=40
+2026-11-18T00:15:16.729Z central FORWARDED      id=94d1b23a to=amaya status=200
+2026-11-18T00:15:16.730Z central FORWARDED      id=e5a6a34e to=amaya status=200
+2026-11-18T00:15:16.731Z central FORWARDED      id=cc13804d to=amaya status=200
+2026-11-18T00:15:16.731Z central FORWARDED      id=47208d75 to=amaya status=200
+2026-11-18T00:15:51.409Z amaya2 RECEIVED       id=c611742f lamport=35 origin=amaya clock=41
+2026-11-18T00:15:51.410Z amaya2 RECEIVED       id=2e70490c lamport=37 origin=amaya clock=42
+2026-11-18T00:15:16.732Z central FORWARDED      id=d3ce880a to=amaya status=200
+2026-11-18T00:15:51.413Z amaya2 RECEIVED       id=fa4c1070 lamport=38 origin=amaya clock=43
+2026-11-18T00:15:18.172Z central FORWARD_GIVEUP id=5ec2a203 to=ext2
+2026-11-18T00:15:26.103Z central STORED         id=18bf6992 origin=ext1 lamport=26
+2026-11-18T00:15:26.112Z central FORWARDED      id=18bf6992 to=ext2 status=200
+2026-11-18T00:15:26.112Z central FORWARDED      id=18bf6992 to=amaya status=200
+2026-11-18T00:15:26.173Z central STORED         id=9f503f75 origin=amaya lamport=26
+2026-11-18T00:16:00.943Z amaya2 LOCAL_MESSAGE  id=0c6f61be lamport=44 user=useramaya2@amaya2
+2026-11-18T00:16:00.954Z amaya2 SENT           id=0c6f61be lamport=44 status=200 attempt=1
+2026-11-18T00:15:26.175Z central STORED         id=11fc6218 origin=amaya lamport=28
+2026-11-18T00:15:26.180Z central FORWARDED      id=9f503f75 to=ext2 status=200
+2026-11-18T00:16:00.980Z amaya2 LOCAL_MESSAGE  id=61996b75 lamport=45 user=useramaya2@amaya2
+2026-11-18T00:15:26.180Z central FORWARDED      id=9f503f75 to=ext1 status=200
+2026-11-18T00:16:01.008Z amaya2 LOCAL_MESSAGE  id=6b8b95dc lamport=46 user=useramaya2@amaya2
+2026-11-18T00:15:26.378Z central STORED         id=401ff458 origin=amaya lamport=29
+2026-11-18T00:15:26.592Z central STORED         id=793b66f2 origin=ext2 lamport=25
+2026-11-18T00:16:01.158Z amaya2 SENT           id=61996b75 lamport=45 status=200 attempt=1
+2026-11-18T00:15:26.594Z central STORED         id=876337c4 origin=ext2 lamport=28
+2026-11-18T00:15:26.597Z central FORWARDED      id=793b66f2 to=amaya status=200
+2026-11-18T00:15:26.597Z central STORED         id=62687349 origin=ext2 lamport=30
+2026-11-18T00:15:26.601Z central FORWARDED      id=62687349 to=amaya status=200
+2026-11-18T00:15:26.607Z central STORED         id=f5d441f0 origin=ext1 lamport=27
+2026-11-18T00:15:26.610Z central STORED         id=ebe960ea origin=ext1 lamport=29
+2026-11-18T00:15:26.613Z central FORWARDED      id=f5d441f0 to=amaya status=200
+2026-11-18T00:15:34.133Z central FORWARDED      id=11fc6218 to=ext2 status=200
+2026-11-18T00:16:01.165Z amaya2 SENT           id=6b8b95dc lamport=46 status=200 attempt=1
+2026-11-18T00:15:34.133Z central FORWARDED      id=18bf6992 to=amaya2 status=200
+2026-11-18T00:15:34.134Z central FORWARDED      id=9f503f75 to=amaya2 status=200
+2026-11-18T00:15:34.136Z central FORWARDED      id=11fc6218 to=ext1 status=200
+2026-11-18T00:15:34.136Z central FORWARDED      id=11fc6218 to=amaya2 status=200
+2026-11-18T00:15:34.141Z central FORWARDED      id=401ff458 to=ext2 status=200
+2026-11-18T00:16:08.984Z amaya2 RECEIVED       id=78349f60 lamport=44 origin=amaya clock=47
+2026-11-18T00:15:34.141Z central FORWARDED      id=401ff458 to=amaya2 status=200
+2026-11-18T00:16:08.988Z amaya2 RECEIVED       id=157a6a83 lamport=46 origin=amaya clock=48
+2026-11-18T00:16:08.991Z amaya2 RECEIVED       id=9a426512 lamport=47 origin=amaya clock=49
+2026-11-18T00:16:08.992Z amaya2 RECEIVED       id=03b2bd53 lamport=45 origin=ext1 clock=50
+2026-11-18T00:16:08.999Z amaya2 RECEIVED       id=7225195d lamport=47 origin=ext1 clock=51
+2026-11-18T00:16:09.003Z amaya2 RECEIVED       id=54b1c10a lamport=48 origin=ext1 clock=52
+2026-11-18T00:15:34.144Z central FORWARDED      id=401ff458 to=ext1 status=200
+2026-11-18T00:15:34.144Z central FORWARDED      id=793b66f2 to=ext1 status=200
+2026-11-18T00:15:34.144Z central FORWARDED      id=793b66f2 to=amaya2 status=200
+2026-11-18T00:15:34.145Z central FORWARDED      id=876337c4 to=amaya status=200
+2026-11-18T00:15:34.146Z central FORWARDED      id=876337c4 to=ext1 status=200
+2026-11-18T00:15:34.148Z central FORWARDED      id=62687349 to=ext1 status=200
+2026-11-18T00:15:34.149Z central FORWARDED      id=f5d441f0 to=ext2 status=200
+2026-11-18T00:15:34.149Z central FORWARDED      id=ebe960ea to=amaya status=200
+2026-11-18T00:15:34.150Z central FORWARDED      id=ebe960ea to=ext2 status=200
+2026-11-18T00:15:34.171Z central FORWARDED      id=876337c4 to=amaya2 status=200
+2026-11-18T00:15:34.172Z central FORWARDED      id=f5d441f0 to=amaya2 status=200
+2026-11-18T00:15:34.175Z central FORWARDED      id=62687349 to=amaya2 status=200
+2026-11-18T00:15:34.175Z central FORWARDED      id=ebe960ea to=amaya2 status=200
+2026-11-18T00:15:43.504Z central STORED         id=3264bf07 origin=amaya2 lamport=35
+2026-11-18T00:15:43.513Z central FORWARDED      id=3264bf07 to=amaya status=200
+2026-11-18T00:15:43.609Z central STORED         id=896037a5 origin=ext2 lamport=35
+2026-11-18T00:15:43.612Z central STORED         id=b20150c3 origin=ext2 lamport=36
+2026-11-18T00:15:43.617Z central FORWARDED      id=896037a5 to=amaya status=200
+2026-11-18T00:15:43.618Z central STORED         id=6f128fdc origin=ext2 lamport=37
+2026-11-18T00:15:43.629Z central STORED         id=c611742f origin=amaya lamport=35
+2026-11-18T00:15:43.635Z central FORWARDED      id=6f128fdc to=amaya status=200
+2026-11-18T00:15:43.636Z central STORED         id=2e70490c origin=amaya lamport=37
+2026-11-18T00:15:43.653Z central STORED         id=fa4c1070 origin=amaya lamport=38
+2026-11-18T00:15:43.707Z central STORED         id=9625f327 origin=amaya2 lamport=36
+2026-11-18T00:15:43.710Z central STORED         id=125dd97a origin=amaya2 lamport=37
+2026-11-18T00:15:43.713Z central FORWARDED      id=9625f327 to=amaya status=200
+2026-11-18T00:15:51.387Z central FORWARDED      id=3264bf07 to=ext1 status=200
+2026-11-18T00:15:51.395Z central FORWARDED      id=896037a5 to=ext1 status=200
+2026-11-18T00:15:51.400Z central FORWARDED      id=896037a5 to=amaya2 status=200
+2026-11-18T00:15:51.410Z central FORWARDED      id=b20150c3 to=ext1 status=200
+2026-11-18T00:15:51.410Z central FORWARDED      id=b20150c3 to=amaya status=200
+2026-11-18T00:15:51.414Z central FORWARDED      id=b20150c3 to=amaya2 status=200
+2026-11-18T00:15:51.416Z central FORWARDED      id=6f128fdc to=ext1 status=200
+2026-11-18T00:15:51.417Z central FORWARDED      id=6f128fdc to=amaya2 status=200
+2026-11-18T00:15:51.420Z central FORWARDED      id=c611742f to=amaya2 status=200
+2026-11-18T00:15:51.420Z central FORWARDED      id=2e70490c to=amaya2 status=200
+2026-11-18T00:15:51.423Z central FORWARDED      id=c611742f to=ext1 status=200
+2026-11-18T00:15:51.423Z central FORWARDED      id=2e70490c to=ext2 status=200
+2026-11-18T00:15:51.423Z central FORWARDED      id=2e70490c to=ext1 status=200
+2026-11-18T00:15:51.423Z central FORWARDED      id=fa4c1070 to=ext2 status=200
+2026-11-18T00:15:51.423Z central FORWARDED      id=fa4c1070 to=amaya2 status=200
+2026-11-18T00:15:51.424Z central FORWARDED      id=fa4c1070 to=ext1 status=200
+2026-11-18T00:15:51.425Z central FORWARDED      id=9625f327 to=ext2 status=200
+2026-11-18T00:15:51.425Z central FORWARDED      id=9625f327 to=ext1 status=200
+2026-11-18T00:15:51.425Z central FORWARDED      id=125dd97a to=amaya status=200
+2026-11-18T00:15:51.426Z central FORWARDED      id=125dd97a to=ext1 status=200
+2026-11-18T00:15:53.016Z central FORWARD_GIVEUP id=3264bf07 to=ext2
+2026-11-18T00:15:53.417Z central FORWARD_GIVEUP id=c611742f to=ext2
+2026-11-18T00:15:53.423Z central FORWARD_GIVEUP id=125dd97a to=ext2
+2026-11-18T00:16:00.952Z central STORED         id=0c6f61be origin=amaya2 lamport=44
+2026-11-18T00:16:00.963Z central FORWARDED      id=0c6f61be to=ext1 status=200
+2026-11-18T00:16:00.966Z central FORWARDED      id=0c6f61be to=amaya status=200
+2026-11-18T00:16:01.095Z central STORED         id=78349f60 origin=amaya lamport=44
+2026-11-18T00:16:01.097Z central STORED         id=157a6a83 origin=amaya lamport=46
+2026-11-18T00:16:01.099Z central STORED         id=9a426512 origin=amaya lamport=47
+2026-11-18T00:16:01.156Z central STORED         id=03b2bd53 origin=ext1 lamport=45
+2026-11-18T00:16:01.156Z central STORED         id=61996b75 origin=amaya2 lamport=45
+2026-11-18T00:16:01.163Z central STORED         id=6b8b95dc origin=amaya2 lamport=46
+2026-11-18T00:16:01.164Z central STORED         id=7225195d origin=ext1 lamport=47
+2026-11-18T00:16:01.170Z central STORED         id=54b1c10a origin=ext1 lamport=48
+2026-11-18T00:16:01.172Z central FORWARDED      id=03b2bd53 to=amaya status=200
+2026-11-18T00:16:08.981Z central FORWARDED      id=0c6f61be to=ext2 status=200
+2026-11-18T00:16:08.986Z central FORWARDED      id=78349f60 to=ext2 status=200
+2026-11-18T00:16:08.991Z central FORWARDED      id=78349f60 to=ext1 status=200
+2026-11-18T00:16:08.996Z central FORWARDED      id=78349f60 to=amaya2 status=200
+2026-11-18T00:16:08.999Z central FORWARDED      id=157a6a83 to=ext2 status=200
+2026-11-18T00:16:08.999Z central FORWARDED      id=157a6a83 to=ext1 status=200
+2026-11-18T00:16:09.000Z central FORWARDED      id=157a6a83 to=amaya2 status=200
+2026-11-18T00:16:09.002Z central FORWARDED      id=9a426512 to=ext2 status=200
+2026-11-18T00:16:09.003Z central FORWARDED      id=9a426512 to=amaya2 status=200
+2026-11-18T00:16:09.003Z central FORWARDED      id=03b2bd53 to=amaya2 status=200
+2026-11-18T00:16:09.005Z central FORWARDED      id=9a426512 to=ext1 status=200
+2026-11-18T00:16:09.005Z central FORWARDED      id=03b2bd53 to=ext2 status=200
+2026-11-18T00:16:09.009Z central FORWARDED      id=61996b75 to=ext2 status=200
+2026-11-18T00:16:09.009Z central FORWARDED      id=61996b75 to=ext1 status=200
+2026-11-18T00:16:09.009Z central FORWARDED      id=6b8b95dc to=amaya status=200
+2026-11-18T00:16:09.009Z central FORWARDED      id=7225195d to=amaya status=200
+2026-11-18T00:16:09.010Z central FORWARDED      id=61996b75 to=amaya status=200
+2026-11-18T00:16:09.010Z central FORWARDED      id=7225195d to=amaya2 status=200
+2026-11-18T00:16:09.011Z central FORWARDED      id=6b8b95dc to=ext2 status=200
+2026-11-18T00:16:09.011Z central FORWARDED      id=6b8b95dc to=ext1 status=200
+2026-11-18T00:16:09.012Z central FORWARDED      id=7225195d to=ext2 status=200
+2026-11-18T00:16:09.012Z central FORWARDED      id=54b1c10a to=amaya status=200
+2026-11-18T00:16:09.012Z central FORWARDED      id=54b1c10a to=amaya2 status=200
+2026-11-18T00:16:09.012Z central FORWARDED      id=54b1c10a to=ext2 status=200
