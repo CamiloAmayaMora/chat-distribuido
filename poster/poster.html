@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Póster · Chat distribuido entre grupos</title>
+<style>
+  @page { size: 594mm 841mm; margin: 0; }
+  :root {
+    --wine: #5b1427; --wine2: #7a1c34; --rose: #a11a3f; --pink: #c4385d;
+    --soft: #f7eef0; --ink: #1d1b19; --muted: #5f5853; --ok: #2f7d4f; --bad: #b3261e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 594mm; height: 841mm; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: #fff;
+         font-size: 19pt; line-height: 1.28; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .poster { width: 594mm; height: 841mm; padding: 14mm 16mm 10mm; display: grid; gap: 7mm;
+            grid-template-rows: auto auto auto auto auto auto; }
+  header { background: var(--wine); color: #fff; border-radius: 6mm; padding: 11mm 14mm 10mm; display: grid;
+           grid-template-columns: 1fr; align-items: center; gap: 10mm; }
+  header .kicker { font-size: 20pt; letter-spacing: .12em; text-transform: uppercase; color: #f0c9d3; font-weight: 600; }
+  header h1 { font-size: 60pt; line-height: 1.04; margin: 3mm 0 5mm; font-weight: 800; }
+  header .who { font-size: 21pt; color: #fbe7ec; }
+  header .who b { color: #fff; }
+  .badge { background: #fff; color: var(--wine); border-radius: 5mm; padding: 6mm 10mm; text-align: center; }
+  .badge .g { font-size: 78pt; font-weight: 800; line-height: 1; font-family: Consolas, monospace; }
+  .badge .l { font-size: 15pt; color: var(--muted); }
+  section { border-radius: 5mm; padding: 6mm 9mm; background: var(--soft); }
+  h2 { font-size: 32pt; color: var(--wine); margin-bottom: 4mm; display: flex; align-items: center; gap: 4mm; }
+  h2 .n { background: var(--wine); color: #fff; border-radius: 50%; width: 13mm; height: 13mm; font-size: 20pt;
+          display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .row { display: grid; gap: 9mm; }
+  .r2 { grid-template-columns: 1fr 1.25fr; }
+  .r2b { grid-template-columns: 1fr 1fr; }
+  .q { font-size: 27pt; font-weight: 700; color: var(--wine2); line-height: 1.22; margin-bottom: 5mm; }
+  .hyp { border-left: 2.5mm solid var(--rose); padding-left: 5mm; margin-top: 4mm; }
+  ul { padding-left: 8mm; } li { margin: 1.6mm 0; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: .88em; background: #fff; padding: 0 2mm; border-radius: 1.5mm; }
+  .arch img { width: 100%; max-height: 132mm; object-fit: contain; display: block; background: #fff; border-radius: 3mm; }
+  .method { background: #fff; border: 1mm solid var(--soft); }
+  .method-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 8mm; align-items: center; }
+  .results { background: #fff; border: 1.2mm solid var(--pink); display: grid; grid-template-rows: auto 1fr auto; }
+  .charts { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6mm; align-items: center; }
+  .charts img { width: 100%; max-height: 112mm; object-fit: contain; display: block; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; margin: 2mm 0 5mm; }
+  .kpi { background: var(--soft); border-radius: 4mm; padding: 4mm 5mm; text-align: center; }
+  .kpi .v { font-size: 40pt; font-weight: 800; line-height: 1.05; }
+  .kpi .v.ok { color: var(--ok); } .kpi .v.bad { color: var(--bad); }
+  .kpi .t { font-size: 16pt; color: var(--muted); line-height: 1.2; }
+  table { width: 100%; border-collapse: collapse; font-size: 16pt; margin-top: 3mm; }
+  th, td { padding: 1.8mm 3mm; text-align: center; border-bottom: .4mm solid #e8dde0; }
+  th { background: var(--wine); color: #fff; font-weight: 600; }
+  td.l { text-align: left; }
+  .ok { color: var(--ok); font-weight: 700; } .bad { color: var(--bad); font-weight: 700; }
+  .small { font-size: 16pt; color: var(--muted); }
+  footer { font-size: 14.5pt; color: var(--muted); border-top: .6mm solid var(--wine); padding-top: 3mm; line-height: 1.35; }
+  footer b { color: var(--wine); }
+  .check { display: grid; grid-template-columns: auto 1fr; gap: 1mm 4mm; }
+  .check span:nth-child(odd) { font-weight: 800; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <header>
+    <div>
+      <div class="kicker">Sistemas Distribuidos · UIS · Escuela de Ingeniería de Sistemas e Informática</div>
+      <h1>¿Se pierden mensajes cuando un servidor del chat se cae?</h1>
+      <div class="who"><b>Camilo Amaya Mora · Johen Gustavo Castañeda García · Daniel Rodriguez Anaya · Hector Felipe Higuera Jurado</b><br>
+        Proyecto final: chat distribuido entre grupos · noviembre 2026</div>
+    </div>
+  </header>
+
+  <div class="row r2">
+    <section>
+      <h2><span class="n">1</span>Pregunta e hipótesis</h2>
+      <div class="q">¿Cuántos mensajes se pierden o se duplican cuando el servidor del grupo cae unos segundos, y cuánto tarda en ponerse al día?</div>
+      <div class="hyp">
+        <b>Hipótesis.</b> Con <b>outbox + reintentos con backoff</b>, <b>deduplicación por id</b> y
+        <b>GET /history al volver</b>: 0 pérdidas y 0 duplicados visibles, sin importar la duración de la caída.
+        Sin recuperación, las pérdidas crecen con la duración (≈ tasa × caída).
+      </div>
+    </section>
+    <section class="arch">
+      <h2><span class="n">2</span>Arquitectura</h2>
+      <img src="architecture.svg" alt="Diagrama de contenedores y conexión con el servidor central">
+    </section>
+  </div>
+
+  <section class="method">
+    <h2><span class="n">3</span>Método</h2>
+    <div class="method-grid">
+      <svg style="max-height:80mm;width:100%" viewBox="0 0 760 262" font-family="Segoe UI, Arial" font-size="17">
+        <text x="0" y="22" font-weight="700" fill="#5b1427">Una repetición (≈ 25 s)</text>
+        <line x1="60" y1="70" x2="740" y2="70" stroke="#2f5d8a" stroke-width="4"/>
+        <text x="0" y="76" fill="#2f5d8a" font-weight="700">gb</text>
+        <g fill="#2f5d8a">
+          <circle cx="80" cy="70" r="5"/><circle cx="120" cy="70" r="5"/><circle cx="160" cy="70" r="5"/><circle cx="200" cy="70" r="5"/>
+          <circle cx="240" cy="70" r="5"/><circle cx="280" cy="70" r="5"/><circle cx="320" cy="70" r="5"/><circle cx="360" cy="70" r="5"/>
+          <circle cx="400" cy="70" r="5"/><circle cx="440" cy="70" r="5"/><circle cx="480" cy="70" r="5"/><circle cx="520" cy="70" r="5"/>
+          <circle cx="560" cy="70" r="5"/><circle cx="600" cy="70" r="5"/><circle cx="640" cy="70" r="5"/><circle cx="680" cy="70" r="5"/><circle cx="720" cy="70" r="5"/>
+        </g>
+        <text x="400" y="50" text-anchor="middle" fill="#2f5d8a">envía 5 msg/s a #general (vía central)</text>
+        <line x1="60" y1="160" x2="230" y2="160" stroke="#2f7d4f" stroke-width="8"/>
+        <line x1="230" y1="160" x2="450" y2="160" stroke="#b3261e" stroke-width="8" stroke-dasharray="10 8"/>
+        <line x1="450" y1="160" x2="740" y2="160" stroke="#2f7d4f" stroke-width="8"/>
+        <text x="0" y="166" fill="#5b1427" font-weight="700">ga</text>
+        <line x1="230" y1="95" x2="230" y2="200" stroke="#b3261e" stroke-width="2"/>
+        <text x="230" y="222" text-anchor="middle" fill="#b3261e" font-weight="700">docker kill (t = 4 s)</text>
+        <text x="340" y="148" text-anchor="middle" fill="#b3261e">caída D = 2, 5, 10 s</text>
+        <line x1="450" y1="95" x2="450" y2="200" stroke="#2f7d4f" stroke-width="2"/>
+        <text x="450" y="222" text-anchor="middle" fill="#2f7d4f" font-weight="700">docker compose start</text>
+        <text x="600" y="148" text-anchor="middle" fill="#2f7d4f">GET /history → al día</text>
+        <text x="380" y="248" text-anchor="middle" fill="#5f5853">al final: comparar ids enviados por gb con ids en ga</text>
+      </svg>
+      <ul>
+        <li>Laboratorio en un portátil: <b>central simulado + ga + gb</b> (<span class="mono">docker-compose.lab.yml</span>).</li>
+        <li>Fallos inyectados en el central: <b>10 %</b> respuestas perdidas y <b>10 %</b> reenvíos dobles.</li>
+        <li>2 modos: <b class="ok">con recuperación</b> y <b class="bad">control sin /history</b>. 3 duraciones × <b>3 repeticiones</b> = 18 corridas.</li>
+        <li>Script reproducible: <span class="mono">experiment/run_experiment.py</span>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="results">
+    <h2><span class="n">4</span>Resultados</h2>
+    <div>
+      <div class="kpis">
+        <div class="kpi"><div class="v ok">0</div><div class="t">mensajes perdidos<br>con recuperación (9 corridas)</div></div>
+        <div class="kpi"><div class="v ok">0</div><div class="t">duplicados en pantalla<br>(18 corridas)</div></div>
+        <div class="kpi"><div class="v">425</div><div class="t">duplicados que llegaron<br>y se descartaron por id</div></div>
+        <div class="kpi"><div class="v bad">37 %</div><div class="t">mensajes perdidos sin<br>recuperación (caída 10 s)</div></div>
+      </div>
+      <div class="charts">
+        <img src="../experiment/results/losses.svg" alt="Mensajes faltantes por duración de caída">
+        <img src="../experiment/results/recovery.svg" alt="Tiempo de recuperación por duración de caída">
+      </div>
+    </div>
+    <table>
+      <tr><th>Caída</th><th>Faltantes con recuperación</th><th>Faltantes sin recuperación (control)</th><th>% perdido (control)</th><th>Dup. en pantalla</th><th>T. recuperación</th></tr>
+      <tr><td>2 s</td><td class="ok">0, 0, 0</td><td class="bad">0, 1, 2</td><td>1,6 %</td><td>0</td><td>0,17 ± 0,14 s</td></tr>
+      <tr><td>5 s</td><td class="ok">0, 0, 0</td><td class="bad">4, 1, 5</td><td>4,4 %</td><td>0</td><td>1,06 ± 0,16 s</td></tr>
+      <tr><td>10 s</td><td class="ok">0, 0, 0</td><td class="bad">25, 63, 24</td><td>37,0 %</td><td>0</td><td>0,02 ± 0,01 s</td></tr>
+      <tr><td colspan="6" class="small">Valores por repetición (n = 3). Tiempo medido desde que ga vuelve a responder hasta tener todos los mensajes enviados durante la caída. 5 msg/s; 1 428 mensajes en total.</td></tr>
+    </table>
+  </section>
+
+  <div class="row r2b">
+    <section>
+      <h2><span class="n">5</span>Interoperabilidad</h2>
+      <ul>
+        <li><b>Conformidad propia: 24/24</b> pruebas.</li>
+        <li><b>Hallazgo:</b> si el central se reinicia olvida los registros; un servidor que solo renovaba cada 30 s dejaba de recibir. <b>Solución:</b> ante cualquier fallo de heartbeat → re-registro + <span class="mono">/history</span>.</li>
+        <li><b>Ensayo con 4 grupos</b> (2 nuestros + 2 implementaciones ajenas, una con errores): todos ven los 8 mensajes; caídas por turnos: <b>0 faltantes, 0 duplicados</b> en los 4.</li>
+        <li><b>Fallas ajenas detectadas:</b> el grupo con errores <b>ordena por llegada</b> (no por Lamport) y <b>pierde todo su historial</b> al reiniciar (lo guarda en RAM).</li>
+        <li>Nuestro servidor acepta <span class="mono">lamport</span> como texto y <span class="mono">sent_at</span> raro; rechaza con <b>400</b> lo inválido (nunca 5xx).</li>
+      </ul>
+    </section>
+    <section>
+      <h2><span class="n">6</span>Limitaciones y conclusiones</h2>
+      <ul>
+        <li><b>Se confirma la hipótesis:</b> la entrega al menos una vez + idempotencia da <b>exactamente una vez visible</b>.</li>
+        <li>El reenvío del central no basta: sin <span class="mono">/history</span> se pierde lo enviado durante la caída.</li>
+        <li><b>Lamport ordena, pero no es "tiempo real"</b>: un servidor atrasado emite marcas bajas → pedimos historial con solapamiento.</li>
+        <li>Limitación: medido con un central simulado en una sola máquina; sin latencia de red real.</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <b>Referencias.</b> [1] R. Vitillo, <i>Understanding Distributed Systems</i>, 2.ª ed., 2022 — libro del curso (Parte I: enlaces confiables, descubrimiento y APIs; cap. 7 detección de fallas; cap. 8 tiempo y relojes de Lamport).
+    [2] L. Lamport, "Time, Clocks, and the Ordering of Events in a Distributed System", <i>CACM</i> 21(7), 1978.
+    [3] Enunciado y especificación OpenAPI del proyecto final, Sistemas Distribuidos, UIS, 2026. [4] Documentación de FastAPI, SQLite y Docker Compose.
+    &nbsp;·&nbsp; <b>Código, datos y scripts:</b> repositorio del grupo (README.md).
+  </footer>
+</div>
+</body>
+</html>

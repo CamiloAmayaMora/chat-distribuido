@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guion de sustentación</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .cover { min-height: auto; page-break-after: auto; padding: 10mm 12mm; }
+  .cover h1 { font-size: 26pt; margin: 4mm 0 3mm; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Sistemas Distribuidos · UIS · Proyecto final</div>
+  <h1>Guion de sustentación <span>· máximo 10 minutos</span></h1>
+  <p class="lead">Chat distribuido entre grupos. Cada bloque dice <b>quién</b> habla, <b>qué señalar</b> en el póster y <b>qué decir</b>
+  (las frases en azul se pueden decir tal cual).</p>
+</div>
+
+<table>
+  <tr><th>Tiempo</th><th>Quién</th><th>Tema</th><th>Señala en el póster</th></tr>
+  <tr><td>0:00 – 1:30</td><td><b>Camilo Amaya Mora</b></td><td>Pregunta, hipótesis y arquitectura</td><td>Secciones 1 y 2</td></tr>
+  <tr><td>1:30 – 3:30</td><td><b>Johen Gustavo Castañeda García</b></td><td>Cómo funciona el servidor por dentro</td><td>Sección 2 (contenedor y volumen)</td></tr>
+  <tr><td>3:30 – 5:30</td><td><b>Daniel Rodriguez Anaya</b></td><td>Conexión con el central e interoperabilidad</td><td>Secciones 2 (flechas) y 5</td></tr>
+  <tr><td>5:30 – 7:30</td><td><b>Hector Felipe Higuera Jurado</b></td><td>Experimento, resultados y conclusiones</td><td>Secciones 3, 4 y 6</td></tr>
+  <tr><td>7:30 – 10:00</td><td><b>Daniel</b> teclea · <b>Johen</b> narra</td><td>Demo en vivo: caída y recuperación</td><td>Portátil</td></tr>
+</table>
+
+<div class="note"><b>Antes de empezar (5 min antes):</b> Docker Desktop abierto ·
+<code>docker compose -f docker-compose.lab.yml up -d --build</code> ·
+dos pestañas con <b>localhost:8001</b> (ga) y <b>localhost:8002</b> (gb), usuarios <i>ana</i> y <i>beto</i> ya creados ·
+una terminal con <code>docker compose -f docker-compose.lab.yml logs -f ga gb</code>.
+Ensayar con cronómetro. Si alguien se pasa, recorta la frase marcada <i>(opcional)</i>.</div>
+
+<div class="block">
+<h3><span class="time">0:00 – 1:30</span> Camilo — Pregunta, hipótesis y arquitectura</h3>
+<p class="point">Saludo</p>
+<p class="say">"Buenos días. Somos Camilo, Johen, Daniel y Hector. Hicimos un servidor de chat que se conecta con el servidor central del profesor, para que todo el curso converse en una misma sala llamada #general."</p>
+<p class="point">Señalar la arquitectura (sección 2)</p>
+<p class="say">"El sistema tiene forma de estrella: en el centro está el servidor del profesor y alrededor uno por cada grupo. Los grupos nunca se hablan entre sí: todo pasa por el central. Nosotros solo controlamos nuestro servidor, y tiene que funcionar con los de otros grupos que no conocemos."</p>
+<p class="say">"Nuestro servidor es un contenedor de Docker con Python y FastAPI, y guarda todo en una base de datos SQLite dentro de un volumen, que es una carpeta que no se borra aunque se reinicie. Se prende con un solo comando: docker compose up. El nombre del grupo y la dirección del central se configuran afuera, en variables de entorno; nada está escrito en el código."</p>
+<p class="point">Señalar la pregunta (sección 1)</p>
+<p class="say">"Nuestra pregunta fue: ¿cuántos mensajes se pierden o se repiten cuando nuestro servidor se cae unos segundos, y cuánto tarda en ponerse al día? Nuestra hipótesis: gracias a los reintentos, a botar repetidos por su identificador y a pedir el historial al volver, no se pierde ni se repite nada. Y sin pedir el historial, mientras más dure la caída, más se pierde."</p>
+<p class="say">"Johen les explica cómo funciona por dentro."</p>
+</div>
+
+<div class="block">
+<h3><span class="time">1:30 – 3:30</span> Johen — El servidor por dentro</h3>
+<p class="point">Persistencia</p>
+<p class="say">"Todo se guarda en disco: usuarios, mensajes, los mensajes que faltan por enviar y el reloj. Por eso si reiniciamos el contenedor no se pierde nada."</p>
+<p class="point">Outbox (bandeja de salida)</p>
+<p class="say">"Cuando alguien escribe, en un solo paso hacemos tres cosas: subimos el reloj, guardamos el mensaje para mostrarlo y lo dejamos en una bandeja de salida. Si el servidor se muere justo después, el mensaje sigue en disco y se envía cuando vuelva."</p>
+<p class="point">Reloj de Lamport</p>
+<p class="say">"Para ordenar los mensajes no usamos la hora, porque cada computador tiene su reloj un poco distinto. Usamos un reloj de Lamport, que es un contador: al enviar le sumamos uno; al recibir, nos quedamos con el mayor entre el nuestro y el que trae el mensaje, y le sumamos uno. Todos ordenan por ese número y, si empatan, por el nombre del servidor. Así todos ven el mismo orden."</p>
+<p class="say"><i>(opcional)</i> "El reloj también se guarda en disco para que nunca vaya hacia atrás después de un reinicio."</p>
+<p class="point">Id único e idempotencia</p>
+<p class="say">"Cada mensaje nace con un identificador único que nunca cambia. Si nos llega un mensaje con un identificador que ya tenemos, respondemos OK pero no hacemos nada. A eso se le llama idempotencia, y por eso reintentar nunca muestra mensajes repetidos."</p>
+<p class="say">"Además todo queda en el log con su identificador y su número de Lamport: enviado, reintentado, recibido, repetido, recuperado. Daniel sigue con la conexión al central."</p>
+</div>
+
+<div class="block">
+<h3><span class="time">3:30 – 5:30</span> Daniel — Conexión con el central e interoperabilidad</h3>
+<p class="point">Registro</p>
+<p class="say">"Al prender, el servidor se registra en el central con su nombre y su dirección, y lo renueva cada 15 segundos."</p>
+<p class="point">Reintentos</p>
+<p class="say">"Una tarea de fondo va enviando lo que hay en la bandeja de salida. Si el central contesta bien, listo. Si contesta con error del servidor (5xx) o no contesta, reintentamos esperando cada vez el doble: 1, 2, 4, 8 segundos, hasta 30. Le ponemos un poco de azar para que no reintenten todos los grupos al mismo tiempo. Si contesta 4xx, que significa que el mensaje está mal, no reintentamos y lo anotamos en el log."</p>
+<p class="say">"Quien envía no puede saber si el mensaje no llegó o si llegó y se perdió la respuesta. Por eso el que recibe debe botar los repetidos. Al menos una vez más idempotencia da exactamente una vez para el usuario."</p>
+<p class="point">Detección de fallas y recuperación</p>
+<p class="say">"Cada 3 segundos le preguntamos al central si está vivo. Si falla 3 veces seguidas lo damos por caído y dejamos de enviar; los mensajes se acumulan en disco. Cuando vuelve, nos registramos otra vez, le pedimos lo que nos perdimos con /history y enviamos lo pendiente. Pedimos el historial con un margen hacia atrás, porque un grupo con el contador atrasado puede mandar mensajes con números más bajos; pedir de más no hace daño porque los repetidos se botan."</p>
+<p class="point">Pruebas e interoperabilidad (sección 5)</p>
+<p class="say">"Nuestras pruebas automáticas pasan 24 de 24. Encontramos un problema propio: si el central se reinicia, olvida quiénes estaban registrados y dejábamos de recibir. Lo arreglamos: ante cualquier falla del central, nos volvemos a registrar y pedimos el historial."</p>
+<p class="say">"Ensayamos la sesión con cuatro grupos: dos copias del nuestro y dos programas escritos aparte, uno bien hecho y otro con errores típicos. Todos vieron todos los mensajes y en las caídas nadie perdió nada. Pero el grupo con errores ordena por orden de llegada, así que ve un orden distinto, y al reiniciarse pierde todo su historial porque lo guarda en memoria. Nuestro servidor tolera sus errores de formato y rechaza con 400 lo que está mal."</p>
+</div>
+
+<div class="block">
+<h3><span class="time">5:30 – 7:30</span> Hector — Experimento</h3>
+<p class="point">Método (sección 3)</p>
+<p class="say">"En un portátil levantamos un central de prueba y dos servidores nuestros, ga y gb. gb envía 5 mensajes por segundo. A los 4 segundos apagamos ga de golpe con docker kill y lo prendemos después de 2, 5 o 10 segundos. Al central le metimos fallas a propósito: 10 % de respuestas perdidas y 10 % de mensajes enviados dos veces. Al final comparamos los mensajes que envió gb con los que tiene ga."</p>
+<p class="say">"Lo hicimos de dos formas: con nuestro servidor completo, y sin pedir el historial, como control. Tres repeticiones de cada caso: 18 corridas, con un script que se puede repetir."</p>
+<p class="point">Resultados (sección 4)</p>
+<p class="say">"Con recuperación: cero mensajes perdidos en las 9 corridas y cero repetidos en pantalla, aunque llegaron 363 repetidos reales que se botaron por su identificador. ga se pone al día en máximo 1,2 segundos después de volver."</p>
+<p class="say">"Sin recuperación, las pérdidas crecen con la caída: con 2 segundos se pierde en promedio 1 mensaje, con 5 unos 3, y con 10 segundos se pierde el 37 %. O sea: el reenvío del central solo no basta; lo que salva los mensajes es pedir el historial."</p>
+<p class="point">Conclusiones y limitaciones (sección 6)</p>
+<p class="say">"Se confirma la hipótesis. La limitación es que medimos en una sola máquina con un central de prueba, sin la demora de una red real. Ahora la demo."</p>
+</div>
+
+<div class="block">
+<h3><span class="time">7:30 – 10:00</span> Demo en vivo — Daniel teclea, Johen narra</h3>
+<table>
+  <tr><th>#</th><th>Daniel hace</th><th>Johen dice / señala</th></tr>
+  <tr><td>1</td><td>Escribe "hola desde ga" en ga y "hola desde gb" en gb</td><td>"Llega al otro lado; el del otro grupo sale con otro color y con su número de Lamport (L…)."</td></tr>
+  <tr><td>2</td><td><code>docker compose -f docker-compose.lab.yml kill ga</code></td><td>"Apagamos ga de golpe: su página ya no responde."</td></tr>
+  <tr><td>3</td><td>Escribe 3 o 4 mensajes desde gb</td><td>"gb sigue escribiendo; el central los recibe."</td></tr>
+  <tr><td>4</td><td><code>docker compose -f docker-compose.lab.yml start ga</code></td><td>"En el log: HISTORY_REQUEST, RECOVERED por cada mensaje perdido, HISTORY_DONE. Después aparecen DUPLICATE: son reenvíos tardíos del central que se botan."</td></tr>
+  <tr><td>5</td><td>Muestra la página de ga</td><td>"Ahí están los mensajes, una sola vez y en el mismo orden que en gb."</td></tr>
+  <tr><td>6</td><td><code>docker compose -f docker-compose.lab.yml stop central</code> y escribe desde ga</td><td>"Ahora se cae el central: HEARTBEAT_FAIL tres veces, CENTRAL_DOWN. La página dice 'central caído' y 'pendientes' sube."</td></tr>
+  <tr><td>7</td><td><code>docker compose -f docker-compose.lab.yml start central</code></td><td>"CENTRAL_UP, OUTBOX_FLUSH, SENT. Pendientes vuelve a cero y gb los recibe sin repetidos."</td></tr>
+</table>
+<p class="point">Cierre — Camilo (10 s)</p>
+<p class="say">"En resumen: reintentar hasta que llegue y botar los repetidos hace que cada mensaje se vea exactamente una vez, y el reloj de Lamport da el mismo orden a todos sin un reloj común. Gracias. ¿Preguntas?"</p>
+<p><b>Plan B si la demo falla:</b> mostrar los logs guardados en <code>experiment/results/run_log.txt</code> e <code>interop/results/interop_logs.txt</code>, y la tabla del póster.</p>
+</div>
+
+<h2><span class="n">?</span>Preguntas probables — todos deben poder responderlas</h2>
+<table>
+  <tr><th style="width:38%">Pregunta</th><th>Respuesta corta</th></tr>
+  <tr><td>¿Qué libro usaron?</td><td>El del curso: Vitillo, <i>Understanding Distributed Systems</i> (2.ª ed.). Cap. 7 detección de fallas, cap. 8 tiempo y relojes de Lamport; Parte I enlaces confiables y APIs.</td></tr>
+  <tr><td>¿Por qué Lamport y no la hora (<code>sent_at</code>)?</td><td>Cada computador tiene su reloj distinto y puede saltar. Lamport respeta la causa-efecto: si a pasó antes que b, entonces L(a) &lt; L(b).</td></tr>
+  <tr><td>¿Lamport da un orden total?</td><td>Solo desempatando: por (lamport, origin). Y L(a) &lt; L(b) no significa que a causó b (para eso hay relojes vectoriales).</td></tr>
+  <tr><td>¿Su heartbeat es heartbeat o ping?</td><td>Según el libro (cap. 7) es un <b>ping</b>: nosotros preguntamos y esperamos respuesta con un tiempo límite. Heartbeat puro sería que el central nos avisara solo.</td></tr>
+  <tr><td>¿Qué pasa si se pierde la respuesta 200 del central?</td><td>Reintentamos con el mismo id; el central ve que ya lo tiene, lo ignora y responde 200.</td></tr>
+  <tr><td>¿Por qué esperar el doble y con azar?</td><td>Para no saturar a un servidor que se está recuperando y para que no reintenten todos a la vez.</td></tr>
+  <tr><td>¿Por qué no reintentan los 4xx?</td><td>Significa que el mensaje está mal; enviarlo igual fallará siempre. Se anota en el log.</td></tr>
+  <tr><td>¿Y si se cae nuestro contenedor con mensajes sin enviar?</td><td>Están en la bandeja de salida en disco; al prender se envían.</td></tr>
+  <tr><td>¿Cómo saben que el central se cayó?</td><td>Le preguntamos cada 3 s; 3 fallos seguidos = caído (configurable). Es imperfecto: puede creer caído a un central que solo está lento.</td></tr>
+  <tr><td>¿Por qué piden el historial "de más"?</td><td>Un grupo con el contador atrasado puede mandar números más bajos que el nuestro; sin margen nos los saltaríamos. Lo repetido se bota.</td></tr>
+  <tr><td>¿Qué pasa si llegan dos mensajes al mismo tiempo?</td><td>Un candado y una transacción hacen que el reloj y el guardado pasen uno detrás del otro, nunca mezclados.</td></tr>
+  <tr><td>¿Y si el central no puede entrar a nuestro portátil (firewall)?</td><td>Modo alternativo: con <code>SYNC_POLL_INTERVAL</code> mayor que 0 pedimos <code>/history</code> cada cierto tiempo.</td></tr>
+  <tr><td>¿Qué garantía de entrega tienen?</td><td>Al menos una vez en la red; exactamente una vez para el usuario gracias a la idempotencia.</td></tr>
+</table>
+
+</body>
+</html>
