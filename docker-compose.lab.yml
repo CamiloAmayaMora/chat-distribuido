@@ -1,0 +1,60 @@
+# Laboratorio local: servidor central simulado + DOS servidores del grupo
+# (recomendación de la sección 10 del enunciado: "levanten g3a y g3b").
+#
+#   docker compose -f docker-compose.lab.yml up -d --build
+#
+#   central  -> http://localhost:9000   (simulador del servidor del profesor)
+#   ga       -> http://localhost:8001   (servidor "<grupo>a")
+#   gb       -> http://localhost:8002   (servidor "<grupo>b")
+#
+# Se usa para probar, para la demo y para el experimento.
+x-group-server: &group-server
+  build: ./server
+  image: chat-distribuido/server:latest
+  restart: "no"            # el experimento decide cuándo vuelve a levantarse
+  depends_on: [central]
+  networks: [lab]
+
+services:
+  central:
+    build: ./central-mock
+    image: chat-distribuido/central-mock:latest
+    environment:
+      FORWARD_RETRIES: ${FORWARD_RETRIES:-3}
+      CHAOS_FAIL_RATE: ${CHAOS_FAIL_RATE:-0}
+      CHAOS_DROP_RESPONSE_RATE: ${CHAOS_DROP_RESPONSE_RATE:-0}
+      CHAOS_DUP_FORWARD_RATE: ${CHAOS_DUP_FORWARD_RATE:-0}
+    ports: ["9000:9000"]
+    networks: [lab]
+
+  ga:
+    <<: *group-server
+    environment:
+      GROUP_NAME: ga
+      PUBLIC_URL: http://ga:8000
+      CENTRAL_URL: http://central:9000
+      HEARTBEAT_INTERVAL: ${HEARTBEAT_INTERVAL:-2}
+      HEARTBEAT_MAX_FAILURES: ${HEARTBEAT_MAX_FAILURES:-3}
+      HISTORY_RECOVERY: ${GA_HISTORY_RECOVERY:-true}
+      SYNC_POLL_INTERVAL: ${SYNC_POLL_INTERVAL:-0}
+    ports: ["8001:8000"]
+    volumes: [ga-data:/data]
+
+  gb:
+    <<: *group-server
+    environment:
+      GROUP_NAME: gb
+      PUBLIC_URL: http://gb:8000
+      CENTRAL_URL: http://central:9000
+      HEARTBEAT_INTERVAL: ${HEARTBEAT_INTERVAL:-2}
+      HEARTBEAT_MAX_FAILURES: ${HEARTBEAT_MAX_FAILURES:-3}
+      SYNC_POLL_INTERVAL: ${SYNC_POLL_INTERVAL:-0}
+    ports: ["8002:8000"]
+    volumes: [gb-data:/data]
+
+volumes:
+  ga-data:
+  gb-data:
+
+networks:
+  lab:

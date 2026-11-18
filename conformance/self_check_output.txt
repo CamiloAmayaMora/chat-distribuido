@@ -1,0 +1,37 @@
+
+== Conformidad del servidor http://localhost:8001 ==  2026-11-17T19:19:31
+
+Federación (API fija del protocolo)
+  [PASA] GET /fed/health responde 200  — status=200
+  [PASA] /fed/health trae nombre del servidor y reloj de Lamport  — {"server": "ga", "lamport": 0, "status": "ok"}
+  [PASA] POST /fed/messages con mensaje nuevo responde 2xx  — status=200
+  [PASA] El mensaje recibido aparece en el historial
+  [PASA] Regla de Lamport al recibir: reloj = max(local, recibido) + 1  — antes=0 recibido=50 ahora=51
+  [PASA] Reenviar el mismo id responde 200 (idempotente)  — status=200
+  [PASA] Reenviar el mismo id NO duplica el mensaje  — apariciones=1
+  [PASA] Un duplicado no altera el reloj  — 51 -> 51
+  [PASA] Campos desconocidos se ignoran sin error  — status=200
+  [PASA] Cuerpo inválido responde 4xx (no 5xx, para no provocar reintentos)  — status=400
+  [PASA] Historial ordenado por (lamport, origin)
+  [PASA] Empate de lamport se resuelve por origin
+
+Usuarios y envío
+  [PASA] Crear usuario local  — {"user": "conf8a63f@ga", "created": true}
+  [PASA] Enviar mensaje local  — status=201
+  [PASA] Regla de Lamport al enviar: incrementa antes de enviar  — reloj=63 mensaje=64
+  [PASA] El id del mensaje es un UUID  — 8ad3d2f6-1b6f-4128-9ed4-86d87b16996f
+  [PASA] Formato: from=usuario@gN y origin=gN
+
+Extremo a extremo con el central
+  [PASA] El servidor se registró en el central  — GET /servers del simulador
+  [PASA] El mensaje local llegó al central con el mismo id
+  [PASA] El central lo reenvió al otro servidor (mismo id)
+
+Persistencia
+  [PASA] El servidor vuelve tras el reinicio
+  [PASA] El historial sobrevive al reinicio  — antes=5 después=5
+  [PASA] Los usuarios sobreviven al reinicio
+  [PASA] El reloj de Lamport no retrocede tras el reinicio
+
+Resultado: 24/24 pruebas pasan
+
