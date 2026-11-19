@@ -14,7 +14,7 @@ recepción, entrega al menos una vez con backoff exponencial y deduplicación, r
 Lamport, detección de fallos por heartbeat, recuperación de historial, cliente y logs.
 
 
-> · [`poster/poster.pdf`](poster/poster.pdf) · [`docs/bitacora_interoperabilidad.md`](docs/bitacora_interoperabilidad.md)
+> Documentos: [`poster/poster.pdf`](poster/poster.pdf) · [`docs/bitacora_interoperabilidad.md`](docs/bitacora_interoperabilidad.md)
 
 ![Arquitectura](docs/architecture.svg)
 
