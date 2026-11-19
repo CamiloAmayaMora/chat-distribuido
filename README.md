@@ -5,7 +5,7 @@
 
 Proyecto final de **Sistemas Distribuidos** (UIS · EISI).
 
-**Integrantes:** Camilo Amaya Mora · Johen Gustavo Castañeda García · Daniel Rodriguez Anaya · Hector Felipe Higuera Jurado
+**Integrantes:** Camilo Amaya Mora · Johen Gustavo Castañeda García · Daniel Felipe Rodriguez Anaya · Hector Felipe Higuera Jurado
 
 Servidor de chat en contenedores que se une a la sala global `#general` a través del
 servidor central del curso. Cumple los 11 requisitos del mínimo común: despliegue con
