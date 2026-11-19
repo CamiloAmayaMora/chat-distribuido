@@ -23,7 +23,7 @@
     #s15-tag { left: 120px; top: 560px; font-family: var(--font-display); font-size: 40px; color: var(--warn); position: absolute; }
   </style>
   <div id="root" data-composition-id="s15" data-width="1920" data-height="1080">
-    <div id="s15-scene" class="clip" data-start="0" data-duration="25">
+    <div id="s15-scene" class="clip" data-start="0.00" data-duration="25.84">
       <div id="s15-k" class="kicker">Ensayo de interoperabilidad · 4 grupos</div>
       <svg id="s15-svg" viewBox="0 0 1920 1080">
         <g stroke="#2a3442" stroke-width="5">
@@ -45,6 +45,10 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const WARP = [[0, 0], [0.4, 1.0], [4.2, 6.0], [7.6, 10.0], [9.0, 11.4], [10.8, 13.5], [12.6, 15.3], [13.6, 17.3], [17.2, 20.6], [20.8, 23.6], [25, 25.84]];
+    const W = (t) => { const p = WARP; if (t <= p[0][0]) return t; for (let i = 1; i < p.length; i++) { if (t <= p[i][0]) { const [a, b] = p[i - 1], [c, d] = p[i]; return b + (t - a) * (d - b) / (c - a); } } const [a, b] = p[p.length - 1]; return b + (t - a); };
+    for (const m of ["to", "fromTo", "set", "from"]) { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = W(a[i]); return f(...a); }; }
+
     tl.fromTo("#s15-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
     tl.fromTo("#s15-c", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 0.4);
     tl.fromTo("#s15-svg", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.8);

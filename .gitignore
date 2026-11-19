@@ -15,3 +15,10 @@ video/**/node_modules/
 video/**/renders/
 video/render/rotulos/*.mov
 video/render/animaciones_completas.mp4
+video/animaciones/assets/
+video/voces/original/
+
+# grabaciones del grupo y video con sus voces: no se publican sin su visto bueno
+Audios y Videos Video/
+video/voces/limpias/
+video/render/video_final.mp4

@@ -1,0 +1,240 @@
+{
+ "text": "cada tres segundos le preguntamos al central si está vivo si falla tres veces guías lo vamos por caído y lo mensajes se acumulan en disco cuando vuelve nos registramos de nuevo y pedimos con history todo lo que nos perdimos y por último enviamos lo pendiente",
+ "words": [
+  {
+   "w": "cada",
+   "start": 0.0,
+   "end": 1.26
+  },
+  {
+   "w": "tres",
+   "start": 1.26,
+   "end": 1.62
+  },
+  {
+   "w": "segundos",
+   "start": 1.62,
+   "end": 2.04
+  },
+  {
+   "w": "le",
+   "start": 2.04,
+   "end": 2.38
+  },
+  {
+   "w": "preguntamos",
+   "start": 2.38,
+   "end": 2.92
+  },
+  {
+   "w": "al",
+   "start": 2.92,
+   "end": 3.2
+  },
+  {
+   "w": "central",
+   "start": 3.2,
+   "end": 3.52
+  },
+  {
+   "w": "si",
+   "start": 3.52,
+   "end": 3.82
+  },
+  {
+   "w": "está",
+   "start": 3.82,
+   "end": 4.02
+  },
+  {
+   "w": "vivo",
+   "start": 4.02,
+   "end": 4.26
+  },
+  {
+   "w": "si",
+   "start": 4.26,
+   "end": 5.04
+  },
+  {
+   "w": "falla",
+   "start": 5.04,
+   "end": 5.32
+  },
+  {
+   "w": "tres",
+   "start": 5.32,
+   "end": 5.56
+  },
+  {
+   "w": "veces",
+   "start": 5.56,
+   "end": 5.82
+  },
+  {
+   "w": "guías",
+   "start": 5.82,
+   "end": 6.3
+  },
+  {
+   "w": "lo",
+   "start": 6.3,
+   "end": 6.98
+  },
+  {
+   "w": "vamos",
+   "start": 6.98,
+   "end": 7.2
+  },
+  {
+   "w": "por",
+   "start": 7.2,
+   "end": 7.42
+  },
+  {
+   "w": "caído",
+   "start": 7.42,
+   "end": 7.84
+  },
+  {
+   "w": "y",
+   "start": 7.84,
+   "end": 8.18
+  },
+  {
+   "w": "lo",
+   "start": 8.18,
+   "end": 8.26
+  },
+  {
+   "w": "mensajes",
+   "start": 8.26,
+   "end": 8.62
+  },
+  {
+   "w": "se",
+   "start": 8.62,
+   "end": 8.78
+  },
+  {
+   "w": "acumulan",
+   "start": 8.78,
+   "end": 9.06
+  },
+  {
+   "w": "en",
+   "start": 9.06,
+   "end": 9.22
+  },
+  {
+   "w": "disco",
+   "start": 9.22,
+   "end": 9.5
+  },
+  {
+   "w": "cuando",
+   "start": 9.5,
+   "end": 10.42
+  },
+  {
+   "w": "vuelve",
+   "start": 10.42,
+   "end": 11.02
+  },
+  {
+   "w": "nos",
+   "start": 11.02,
+   "end": 11.24
+  },
+  {
+   "w": "registramos",
+   "start": 11.24,
+   "end": 11.74
+  },
+  {
+   "w": "de",
+   "start": 11.74,
+   "end": 11.9
+  },
+  {
+   "w": "nuevo",
+   "start": 11.9,
+   "end": 12.1
+  },
+  {
+   "w": "y",
+   "start": 12.1,
+   "end": 13.06
+  },
+  {
+   "w": "pedimos",
+   "start": 13.06,
+   "end": 13.72
+  },
+  {
+   "w": "con",
+   "start": 13.72,
+   "end": 14.06
+  },
+  {
+   "w": "history",
+   "start": 14.06,
+   "end": 14.62
+  },
+  {
+   "w": "todo",
+   "start": 14.62,
+   "end": 15.12
+  },
+  {
+   "w": "lo",
+   "start": 15.12,
+   "end": 15.32
+  },
+  {
+   "w": "que",
+   "start": 15.32,
+   "end": 15.42
+  },
+  {
+   "w": "nos",
+   "start": 15.42,
+   "end": 15.54
+  },
+  {
+   "w": "perdimos",
+   "start": 15.54,
+   "end": 15.96
+  },
+  {
+   "w": "y",
+   "start": 15.96,
+   "end": 16.82
+  },
+  {
+   "w": "por",
+   "start": 16.82,
+   "end": 16.98
+  },
+  {
+   "w": "último",
+   "start": 16.98,
+   "end": 17.28
+  },
+  {
+   "w": "enviamos",
+   "start": 17.28,
+   "end": 17.76
+  },
+  {
+   "w": "lo",
+   "start": 17.76,
+   "end": 17.9
+  },
+  {
+   "w": "pendiente",
+   "start": 17.9,
+   "end": 18.34
+  }
+ ]
+}

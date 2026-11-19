@@ -1,0 +1,260 @@
+{
+ "text": "Cuando alguien escribe, hacemos tres cosas en un solo paso. Dentro de una transacción, subimos el reloj, guardamos el mensaje para mostrarlo, y lo dejamos en una bandeja de salida. Si el servidor se muere justo después, el mensaje no se pierde. Sigue en el disco y se envía apenas vuelve.",
+ "words": [
+  {
+   "w": "Cuando",
+   "start": 0.98,
+   "end": 1.58
+  },
+  {
+   "w": "alguien",
+   "start": 1.58,
+   "end": 1.92
+  },
+  {
+   "w": "escribe,",
+   "start": 1.92,
+   "end": 2.38
+  },
+  {
+   "w": "hacemos",
+   "start": 2.52,
+   "end": 2.82
+  },
+  {
+   "w": "tres",
+   "start": 2.82,
+   "end": 3.16
+  },
+  {
+   "w": "cosas",
+   "start": 3.16,
+   "end": 3.42
+  },
+  {
+   "w": "en",
+   "start": 3.42,
+   "end": 3.6
+  },
+  {
+   "w": "un",
+   "start": 3.6,
+   "end": 3.68
+  },
+  {
+   "w": "solo",
+   "start": 3.68,
+   "end": 3.84
+  },
+  {
+   "w": "paso.",
+   "start": 3.84,
+   "end": 4.1
+  },
+  {
+   "w": "Dentro",
+   "start": 4.6,
+   "end": 4.86
+  },
+  {
+   "w": "de",
+   "start": 4.86,
+   "end": 4.94
+  },
+  {
+   "w": "una",
+   "start": 4.94,
+   "end": 5.06
+  },
+  {
+   "w": "transacción,",
+   "start": 5.06,
+   "end": 5.72
+  },
+  {
+   "w": "subimos",
+   "start": 6.04,
+   "end": 6.42
+  },
+  {
+   "w": "el",
+   "start": 6.42,
+   "end": 6.64
+  },
+  {
+   "w": "reloj,",
+   "start": 6.64,
+   "end": 7.14
+  },
+  {
+   "w": "guardamos",
+   "start": 7.2,
+   "end": 7.62
+  },
+  {
+   "w": "el",
+   "start": 7.62,
+   "end": 7.82
+  },
+  {
+   "w": "mensaje",
+   "start": 7.82,
+   "end": 8.16
+  },
+  {
+   "w": "para",
+   "start": 8.16,
+   "end": 8.38
+  },
+  {
+   "w": "mostrarlo,",
+   "start": 8.38,
+   "end": 8.98
+  },
+  {
+   "w": "y",
+   "start": 9.56,
+   "end": 9.62
+  },
+  {
+   "w": "lo",
+   "start": 9.62,
+   "end": 9.74
+  },
+  {
+   "w": "dejamos",
+   "start": 9.74,
+   "end": 10.06
+  },
+  {
+   "w": "en",
+   "start": 10.06,
+   "end": 10.24
+  },
+  {
+   "w": "una",
+   "start": 10.24,
+   "end": 10.42
+  },
+  {
+   "w": "bandeja",
+   "start": 10.42,
+   "end": 10.84
+  },
+  {
+   "w": "de",
+   "start": 10.84,
+   "end": 10.96
+  },
+  {
+   "w": "salida.",
+   "start": 10.96,
+   "end": 11.42
+  },
+  {
+   "w": "Si",
+   "start": 12.16,
+   "end": 12.56
+  },
+  {
+   "w": "el",
+   "start": 12.56,
+   "end": 12.68
+  },
+  {
+   "w": "servidor",
+   "start": 12.68,
+   "end": 13.18
+  },
+  {
+   "w": "se",
+   "start": 13.18,
+   "end": 13.42
+  },
+  {
+   "w": "muere",
+   "start": 13.42,
+   "end": 13.72
+  },
+  {
+   "w": "justo",
+   "start": 13.72,
+   "end": 14.04
+  },
+  {
+   "w": "después,",
+   "start": 14.04,
+   "end": 14.56
+  },
+  {
+   "w": "el",
+   "start": 14.9,
+   "end": 14.96
+  },
+  {
+   "w": "mensaje",
+   "start": 14.96,
+   "end": 15.38
+  },
+  {
+   "w": "no",
+   "start": 15.38,
+   "end": 15.54
+  },
+  {
+   "w": "se",
+   "start": 15.54,
+   "end": 15.66
+  },
+  {
+   "w": "pierde.",
+   "start": 15.66,
+   "end": 16.08
+  },
+  {
+   "w": "Sigue",
+   "start": 16.46,
+   "end": 16.88
+  },
+  {
+   "w": "en",
+   "start": 16.88,
+   "end": 17.12
+  },
+  {
+   "w": "el",
+   "start": 17.12,
+   "end": 17.22
+  },
+  {
+   "w": "disco",
+   "start": 17.22,
+   "end": 17.48
+  },
+  {
+   "w": "y",
+   "start": 17.48,
+   "end": 17.74
+  },
+  {
+   "w": "se",
+   "start": 17.74,
+   "end": 17.84
+  },
+  {
+   "w": "envía",
+   "start": 17.84,
+   "end": 18.26
+  },
+  {
+   "w": "apenas",
+   "start": 18.26,
+   "end": 18.96
+  },
+  {
+   "w": "vuelve.",
+   "start": 18.96,
+   "end": 19.46
+  }
+ ]
+}

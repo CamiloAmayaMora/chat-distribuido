@@ -24,7 +24,7 @@
     #s07-scr b { display: block; font-family: var(--font-display); font-size: 56px; color: var(--ok); }
   </style>
   <div id="root" data-composition-id="s07" data-width="1920" data-height="1080">
-    <div id="s07-a" class="clip" data-start="0" data-duration="9">
+    <div id="s07-a" class="clip" data-start="0.00" data-duration="9.31">
       <div id="s07-k" class="kicker">Idempotencia · un id único por mensaje</div>
       <div id="s07-m1" class="s07-card"><div class="id">id 3f9c…a1e7</div><div class="tx">beto: ¿listos?</div></div>
       <div id="s07-m2" class="s07-card"><div class="id">id 3f9c…a1e7</div><div class="tx">beto: ¿listos? (otra vez)</div></div>
@@ -36,7 +36,7 @@
       <div id="s07-dup">ya existe → no se guarda otra vez</div>
       <div id="s07-ok" class="chip">200 OK</div>
     </div>
-    <div id="s07-b" class="clip" data-start="8.6" data-duration="10.4">
+    <div id="s07-b" class="clip" data-start="8.80" data-duration="9.14">
       <div id="s07-word" class="title"><b>Idempotencia</b></div>
       <div id="s07-t1" class="s07-try">envío 1</div>
       <div id="s07-t2" class="s07-try">reintento 2</div>
@@ -47,6 +47,10 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const WARP = [[0, 0], [0.5, 1.4], [3.2, 4.0], [5.8, 6.0], [8.6, 8.8], [10.8, 11.6], [19, 17.94]];
+    const W = (t) => { const p = WARP; if (t <= p[0][0]) return t; for (let i = 1; i < p.length; i++) { if (t <= p[i][0]) { const [a, b] = p[i - 1], [c, d] = p[i]; return b + (t - a) * (d - b) / (c - a); } } const [a, b] = p[p.length - 1]; return b + (t - a); };
+    for (const m of ["to", "fromTo", "set", "from"]) { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = W(a[i]); return f(...a); }; }
+
     tl.fromTo("#s07-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
     tl.fromTo("#s07-srv", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: "expo.out" }, 0.2);
     tl.fromTo("#s07-r0", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);

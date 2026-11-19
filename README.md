@@ -179,18 +179,18 @@ docker compose -f docker-compose.lab.yml start central      # CENTRAL_UP, OUTBOX
 
 ## 10. Video de sustentación
 
-Guion, plan de grabación y edición: **[docs/Guion_video.pdf](docs/Guion_video.pdf)** (≈ 7 min).
+**Video final: `video/render/video_final.mp4`** (≈ 7,5 min, voz en off del grupo sobre animaciones y una demo real).
+Guion y explicación: **[docs/Guion_video.pdf](docs/Guion_video.pdf)**.
 
-| Pieza | Dónde | Cómo se regenera |
-|---|---|---|
-| Animaciones (11 escenas, HyperFrames) | `video/animaciones/` → `video/render/escenas/` | `npx hyperframes render` + `python video/tools/preparar_medios.py` |
-| Demo real grabada (caídas y recuperación) | `video/render/demo.mp4` | `node video/demo/grabar_demo.mjs` (con el laboratorio arriba) |
-| Rótulos con nombres (fondo transparente) | `video/rotulos/` → `video/render/rotulos/` | `npx hyperframes render --format mov --variables …` |
-| Voz guía sintética | `video/tts/` | `powershell -File video/build_tts.ps1` |
-| Borrador completo con voz guía | `video/render/borrador_con_voz_guia.mp4` | `python video/tools/borrador.py` |
-| Proyecto de DaVinci Resolve | `video/resolve/` | Resolve: *Workspace › Scripts › Utility › Armar_video_chat_distribuido* (o *File › Import › Timeline* con `linea_de_tiempo.fcpxml`) |
+| Pieza | Dónde |
+|---|---|
+| Grabaciones originales del grupo | `Audios y Videos Video/` |
+| Voces limpias y transcripciones | `video/voces/limpias/`, `video/voces/transcripciones/` |
+| Animaciones (HyperFrames) | `video/animaciones/` (`base/` originales, `compositions/` sincronizadas) |
+| Demo real grabada | `video/render/demo.mp4` (`node video/demo/grabar_demo.mjs`) |
+| Proyecto de DaVinci Resolve (para música) | `video/resolve/` |
 
-El texto de cada escena está en `video/guion_video.json` (fuente única).
+Rehacer el video: `python video/tools/sincronizar.py` y luego `npx hyperframes render . -o ../render/video_final.mp4` dentro de `video/animaciones`.
 
 ## 11. Referencias
 

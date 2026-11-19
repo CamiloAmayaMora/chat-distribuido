@@ -22,7 +22,7 @@
     #s01-sub { left: 0; right: 0; top: 730px; text-align: center; font-size: 36px; color: var(--muted); position: absolute; font-family: var(--font-body); }
   </style>
   <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
-    <div id="s01-stage" class="clip" data-start="0" data-duration="11.6">
+    <div id="s01-stage" class="clip" data-start="0.00" data-duration="13.80">
       <svg id="s01-svg" viewBox="0 0 1920 1080">
         <g stroke="#2a3442" stroke-width="5" stroke-linecap="round">
           <line id="s01-w1" x1="960" y1="540" x2="410" y2="235" />
@@ -50,7 +50,7 @@
       </div>
       <div id="s01-ask" class="title">¿Qué le pasa a un mensaje si su destino se apaga?</div>
     </div>
-    <div id="s01-end" class="clip" data-start="11.2" data-duration="4.8">
+    <div id="s01-end" class="clip" data-start="13.40" data-duration="4.80">
       <div id="s01-kick" class="kicker">Sistemas Distribuidos · UIS · Proyecto final</div>
       <div id="s01-t1" class="title">Chat <b>distribuido</b><br />entre grupos</div>
       <div id="s01-sub">Camilo Amaya · Johen Castañeda · Daniel Rodriguez · Hector Higuera</div>
@@ -58,6 +58,10 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const WARP = [[0, 0], [3.4, 3.9], [6.2, 7.3], [7.9, 11.2], [11.1, 13.3]];
+    const W = (t) => { const p = WARP; if (t <= p[0][0]) return t; for (let i = 1; i < p.length; i++) { if (t <= p[i][0]) { const [a, b] = p[i - 1], [c, d] = p[i]; return b + (t - a) * (d - b) / (c - a); } } const [a, b] = p[p.length - 1]; return b + (t - a); };
+    for (const m of ["to", "fromTo", "set", "from"]) { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = W(a[i]); return f(...a); }; }
+
     const groups = ["#s01-ga", "#s01-gb", "#s01-gc", "#s01-gd"];
     // 1. cuatro grupos
     tl.fromTo(groups, { opacity: 0, scale: 0.7, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "expo.out", stagger: 0.12 }, 0.3);
@@ -83,7 +87,7 @@
     tl.to("#s01-c3", { opacity: 0, filter: "blur(8px)", duration: 0.18 }, 6.0);
     // 3. la pregunta: ga escribe, gb se apaga a mitad de camino
     tl.fromTo("#s01-msg", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 6.2);
-    tl.to("#s01-msg", { x: 480, y: 120, duration: 1.0, ease: "power2.inOut" }, 6.9);
+    tl.to("#s01-msg", { x: 420, y: -20, duration: 1.0, ease: "power2.inOut" }, 6.9);
     tl.to("#s01-gb", { borderColor: "#ff5c5c", opacity: 0.35, duration: 0.25, ease: "power2.out" }, 7.9);
     tl.fromTo("#s01-off", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 7.95);
     tl.to("#s01-msg", { x: 760, y: -40, duration: 0.7, ease: "power3.out" }, 8.0);

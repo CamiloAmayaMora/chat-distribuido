@@ -1,0 +1,725 @@
+{
+ "text": "Esta es la demo real. A la izquierda está el chat del grupo GA y a la derecha el de GB. Abajo están los LOD de los dos servidores. Ana escribe desde GA y Beto responde desde GB. Cada mensaje lleva su número del LAN port. Ahora apagamos GA de golpe con dockerkill. Beto sigue escribiendo. Estos mensajes llegan al central pero GA no está para recibirlos. Prendemos GA otra vez. En el LOD aparece history records y un record por cada mensaje perdido. Ahí están todos los mensajes una sola vez y en el mismo orden en los dos grupos. Ahora apagamos el servidor central. Tras tres latidos fallidos GA lo marca como caído y lo que escribe Ana queda pendiente en disco. El central vuelve GA se registra otra vez. Vacía la bandeja de salida y Beto recibe los mensajes sin repetidos.",
+ "words": [
+  {
+   "w": "Esta",
+   "start": 0.0,
+   "end": 1.16
+  },
+  {
+   "w": "es",
+   "start": 1.16,
+   "end": 1.46
+  },
+  {
+   "w": "la",
+   "start": 1.46,
+   "end": 1.58
+  },
+  {
+   "w": "demo",
+   "start": 1.58,
+   "end": 1.78
+  },
+  {
+   "w": "real.",
+   "start": 1.78,
+   "end": 2.18
+  },
+  {
+   "w": "A",
+   "start": 2.74,
+   "end": 3.16
+  },
+  {
+   "w": "la",
+   "start": 3.16,
+   "end": 3.24
+  },
+  {
+   "w": "izquierda",
+   "start": 3.24,
+   "end": 3.82
+  },
+  {
+   "w": "está",
+   "start": 3.82,
+   "end": 4.22
+  },
+  {
+   "w": "el",
+   "start": 4.22,
+   "end": 4.34
+  },
+  {
+   "w": "chat",
+   "start": 4.34,
+   "end": 4.46
+  },
+  {
+   "w": "del",
+   "start": 4.46,
+   "end": 4.66
+  },
+  {
+   "w": "grupo",
+   "start": 4.66,
+   "end": 4.88
+  },
+  {
+   "w": "GA",
+   "start": 4.88,
+   "end": 5.42
+  },
+  {
+   "w": "y",
+   "start": 5.42,
+   "end": 6.08
+  },
+  {
+   "w": "a",
+   "start": 6.08,
+   "end": 6.18
+  },
+  {
+   "w": "la",
+   "start": 6.18,
+   "end": 6.26
+  },
+  {
+   "w": "derecha",
+   "start": 6.26,
+   "end": 6.64
+  },
+  {
+   "w": "el",
+   "start": 6.64,
+   "end": 6.94
+  },
+  {
+   "w": "de",
+   "start": 6.94,
+   "end": 7.02
+  },
+  {
+   "w": "GB.",
+   "start": 7.02,
+   "end": 7.4
+  },
+  {
+   "w": "Abajo",
+   "start": 8.4,
+   "end": 8.8
+  },
+  {
+   "w": "están",
+   "start": 8.8,
+   "end": 9.24
+  },
+  {
+   "w": "los",
+   "start": 9.24,
+   "end": 9.5
+  },
+  {
+   "w": "LOD",
+   "start": 9.5,
+   "end": 9.88
+  },
+  {
+   "w": "de",
+   "start": 9.88,
+   "end": 10.24
+  },
+  {
+   "w": "los",
+   "start": 10.24,
+   "end": 10.36
+  },
+  {
+   "w": "dos",
+   "start": 10.36,
+   "end": 10.5
+  },
+  {
+   "w": "servidores.",
+   "start": 10.5,
+   "end": 10.94
+  },
+  {
+   "w": "Ana",
+   "start": 12.18,
+   "end": 12.48
+  },
+  {
+   "w": "escribe",
+   "start": 12.48,
+   "end": 12.86
+  },
+  {
+   "w": "desde",
+   "start": 12.86,
+   "end": 13.18
+  },
+  {
+   "w": "GA",
+   "start": 13.18,
+   "end": 13.64
+  },
+  {
+   "w": "y",
+   "start": 13.64,
+   "end": 14.22
+  },
+  {
+   "w": "Beto",
+   "start": 14.22,
+   "end": 14.44
+  },
+  {
+   "w": "responde",
+   "start": 14.44,
+   "end": 14.98
+  },
+  {
+   "w": "desde",
+   "start": 14.98,
+   "end": 15.18
+  },
+  {
+   "w": "GB.",
+   "start": 15.18,
+   "end": 15.66
+  },
+  {
+   "w": "Cada",
+   "start": 16.36,
+   "end": 16.72
+  },
+  {
+   "w": "mensaje",
+   "start": 16.72,
+   "end": 17.16
+  },
+  {
+   "w": "lleva",
+   "start": 17.16,
+   "end": 17.54
+  },
+  {
+   "w": "su",
+   "start": 17.54,
+   "end": 17.74
+  },
+  {
+   "w": "número",
+   "start": 17.74,
+   "end": 18.02
+  },
+  {
+   "w": "del",
+   "start": 18.02,
+   "end": 18.4
+  },
+  {
+   "w": "LAN",
+   "start": 18.4,
+   "end": 18.62
+  },
+  {
+   "w": "port.",
+   "start": 18.62,
+   "end": 18.98
+  },
+  {
+   "w": "Ahora",
+   "start": 19.78,
+   "end": 20.32
+  },
+  {
+   "w": "apagamos",
+   "start": 20.32,
+   "end": 21.14
+  },
+  {
+   "w": "GA",
+   "start": 21.14,
+   "end": 21.54
+  },
+  {
+   "w": "de",
+   "start": 21.54,
+   "end": 21.88
+  },
+  {
+   "w": "golpe",
+   "start": 21.88,
+   "end": 22.16
+  },
+  {
+   "w": "con",
+   "start": 22.16,
+   "end": 22.9
+  },
+  {
+   "w": "dockerkill.",
+   "start": 22.9,
+   "end": 23.56
+  },
+  {
+   "w": "Beto",
+   "start": 24.34,
+   "end": 25.1
+  },
+  {
+   "w": "sigue",
+   "start": 25.1,
+   "end": 25.5
+  },
+  {
+   "w": "escribiendo.",
+   "start": 25.5,
+   "end": 26.04
+  },
+  {
+   "w": "Estos",
+   "start": 26.58,
+   "end": 26.86
+  },
+  {
+   "w": "mensajes",
+   "start": 26.86,
+   "end": 27.26
+  },
+  {
+   "w": "llegan",
+   "start": 27.26,
+   "end": 27.78
+  },
+  {
+   "w": "al",
+   "start": 27.78,
+   "end": 27.88
+  },
+  {
+   "w": "central",
+   "start": 27.88,
+   "end": 28.18
+  },
+  {
+   "w": "pero",
+   "start": 28.18,
+   "end": 29.0
+  },
+  {
+   "w": "GA",
+   "start": 29.0,
+   "end": 29.3
+  },
+  {
+   "w": "no",
+   "start": 29.3,
+   "end": 29.68
+  },
+  {
+   "w": "está",
+   "start": 29.68,
+   "end": 29.86
+  },
+  {
+   "w": "para",
+   "start": 29.86,
+   "end": 30.06
+  },
+  {
+   "w": "recibirlos.",
+   "start": 30.06,
+   "end": 30.78
+  },
+  {
+   "w": "Prendemos",
+   "start": 31.3,
+   "end": 31.86
+  },
+  {
+   "w": "GA",
+   "start": 31.86,
+   "end": 32.3
+  },
+  {
+   "w": "otra",
+   "start": 32.3,
+   "end": 32.52
+  },
+  {
+   "w": "vez.",
+   "start": 32.52,
+   "end": 32.86
+  },
+  {
+   "w": "En",
+   "start": 33.58,
+   "end": 33.74
+  },
+  {
+   "w": "el",
+   "start": 33.74,
+   "end": 33.82
+  },
+  {
+   "w": "LOD",
+   "start": 33.82,
+   "end": 34.06
+  },
+  {
+   "w": "aparece",
+   "start": 34.06,
+   "end": 34.74
+  },
+  {
+   "w": "history",
+   "start": 34.74,
+   "end": 35.62
+  },
+  {
+   "w": "records",
+   "start": 35.62,
+   "end": 36.12
+  },
+  {
+   "w": "y",
+   "start": 36.12,
+   "end": 36.82
+  },
+  {
+   "w": "un",
+   "start": 36.82,
+   "end": 36.96
+  },
+  {
+   "w": "record",
+   "start": 36.96,
+   "end": 37.26
+  },
+  {
+   "w": "por",
+   "start": 37.26,
+   "end": 38.08
+  },
+  {
+   "w": "cada",
+   "start": 38.08,
+   "end": 38.38
+  },
+  {
+   "w": "mensaje",
+   "start": 38.38,
+   "end": 38.82
+  },
+  {
+   "w": "perdido.",
+   "start": 38.82,
+   "end": 39.32
+  },
+  {
+   "w": "Ahí",
+   "start": 40.22,
+   "end": 40.36
+  },
+  {
+   "w": "están",
+   "start": 40.36,
+   "end": 40.6
+  },
+  {
+   "w": "todos",
+   "start": 40.6,
+   "end": 41.18
+  },
+  {
+   "w": "los",
+   "start": 41.18,
+   "end": 41.36
+  },
+  {
+   "w": "mensajes",
+   "start": 41.36,
+   "end": 41.76
+  },
+  {
+   "w": "una",
+   "start": 41.76,
+   "end": 42.38
+  },
+  {
+   "w": "sola",
+   "start": 42.38,
+   "end": 42.62
+  },
+  {
+   "w": "vez",
+   "start": 42.62,
+   "end": 42.94
+  },
+  {
+   "w": "y",
+   "start": 42.94,
+   "end": 43.54
+  },
+  {
+   "w": "en",
+   "start": 43.54,
+   "end": 43.62
+  },
+  {
+   "w": "el",
+   "start": 43.62,
+   "end": 43.72
+  },
+  {
+   "w": "mismo",
+   "start": 43.72,
+   "end": 43.88
+  },
+  {
+   "w": "orden",
+   "start": 43.88,
+   "end": 44.22
+  },
+  {
+   "w": "en",
+   "start": 44.22,
+   "end": 44.64
+  },
+  {
+   "w": "los",
+   "start": 44.64,
+   "end": 44.74
+  },
+  {
+   "w": "dos",
+   "start": 44.74,
+   "end": 44.86
+  },
+  {
+   "w": "grupos.",
+   "start": 44.86,
+   "end": 45.18
+  },
+  {
+   "w": "Ahora",
+   "start": 46.28,
+   "end": 47.08
+  },
+  {
+   "w": "apagamos",
+   "start": 47.08,
+   "end": 47.88
+  },
+  {
+   "w": "el",
+   "start": 47.88,
+   "end": 48.04
+  },
+  {
+   "w": "servidor",
+   "start": 48.04,
+   "end": 48.32
+  },
+  {
+   "w": "central.",
+   "start": 48.32,
+   "end": 48.68
+  },
+  {
+   "w": "Tras",
+   "start": 49.6,
+   "end": 49.82
+  },
+  {
+   "w": "tres",
+   "start": 49.82,
+   "end": 50.24
+  },
+  {
+   "w": "latidos",
+   "start": 50.24,
+   "end": 51.04
+  },
+  {
+   "w": "fallidos",
+   "start": 51.04,
+   "end": 51.84
+  },
+  {
+   "w": "GA",
+   "start": 51.84,
+   "end": 52.64
+  },
+  {
+   "w": "lo",
+   "start": 52.64,
+   "end": 53.12
+  },
+  {
+   "w": "marca",
+   "start": 53.12,
+   "end": 53.36
+  },
+  {
+   "w": "como",
+   "start": 53.36,
+   "end": 53.64
+  },
+  {
+   "w": "caído",
+   "start": 53.64,
+   "end": 54.06
+  },
+  {
+   "w": "y",
+   "start": 54.06,
+   "end": 54.82
+  },
+  {
+   "w": "lo",
+   "start": 54.82,
+   "end": 54.92
+  },
+  {
+   "w": "que",
+   "start": 54.92,
+   "end": 55.02
+  },
+  {
+   "w": "escribe",
+   "start": 55.02,
+   "end": 55.3
+  },
+  {
+   "w": "Ana",
+   "start": 55.3,
+   "end": 55.62
+  },
+  {
+   "w": "queda",
+   "start": 55.62,
+   "end": 56.0
+  },
+  {
+   "w": "pendiente",
+   "start": 56.0,
+   "end": 56.52
+  },
+  {
+   "w": "en",
+   "start": 56.52,
+   "end": 56.78
+  },
+  {
+   "w": "disco.",
+   "start": 56.78,
+   "end": 57.12
+  },
+  {
+   "w": "El",
+   "start": 57.92,
+   "end": 58.2
+  },
+  {
+   "w": "central",
+   "start": 58.2,
+   "end": 58.58
+  },
+  {
+   "w": "vuelve",
+   "start": 58.58,
+   "end": 59.32
+  },
+  {
+   "w": "GA",
+   "start": 59.32,
+   "end": 60.04
+  },
+  {
+   "w": "se",
+   "start": 60.04,
+   "end": 60.42
+  },
+  {
+   "w": "registra",
+   "start": 60.42,
+   "end": 60.86
+  },
+  {
+   "w": "otra",
+   "start": 60.86,
+   "end": 61.0
+  },
+  {
+   "w": "vez.",
+   "start": 61.0,
+   "end": 61.32
+  },
+  {
+   "w": "Vacía",
+   "start": 61.84,
+   "end": 62.34
+  },
+  {
+   "w": "la",
+   "start": 62.34,
+   "end": 62.48
+  },
+  {
+   "w": "bandeja",
+   "start": 62.48,
+   "end": 62.88
+  },
+  {
+   "w": "de",
+   "start": 62.88,
+   "end": 62.98
+  },
+  {
+   "w": "salida",
+   "start": 62.98,
+   "end": 63.42
+  },
+  {
+   "w": "y",
+   "start": 63.42,
+   "end": 64.06
+  },
+  {
+   "w": "Beto",
+   "start": 64.06,
+   "end": 64.38
+  },
+  {
+   "w": "recibe",
+   "start": 64.38,
+   "end": 64.78
+  },
+  {
+   "w": "los",
+   "start": 64.78,
+   "end": 64.9
+  },
+  {
+   "w": "mensajes",
+   "start": 64.9,
+   "end": 65.36
+  },
+  {
+   "w": "sin",
+   "start": 65.36,
+   "end": 66.4
+  },
+  {
+   "w": "repetidos.",
+   "start": 66.4,
+   "end": 66.92
+  }
+ ]
+}

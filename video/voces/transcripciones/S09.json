@@ -1,0 +1,350 @@
+{
+ "text": "Una tarea de fondo va vaciando la bandeja de salía. Si el central responde bien, listo. Si responde con un error suyo o no responde, reintentamos esperando cada vez el doble. Uno, dos, cuatro, ocho segundos, hasta 30, con un poco de azar para que no reintentes todos a la vez. Si responde que el mensaje está mal, un error 400, no insistimos y lo dejamos en el lot.",
+ "words": [
+  {
+   "w": "Una",
+   "start": 0.0,
+   "end": 0.84
+  },
+  {
+   "w": "tarea",
+   "start": 0.84,
+   "end": 1.12
+  },
+  {
+   "w": "de",
+   "start": 1.12,
+   "end": 1.32
+  },
+  {
+   "w": "fondo",
+   "start": 1.32,
+   "end": 1.64
+  },
+  {
+   "w": "va",
+   "start": 1.64,
+   "end": 1.94
+  },
+  {
+   "w": "vaciando",
+   "start": 1.94,
+   "end": 2.28
+  },
+  {
+   "w": "la",
+   "start": 2.28,
+   "end": 2.42
+  },
+  {
+   "w": "bandeja",
+   "start": 2.42,
+   "end": 2.74
+  },
+  {
+   "w": "de",
+   "start": 2.74,
+   "end": 2.82
+  },
+  {
+   "w": "salía.",
+   "start": 2.82,
+   "end": 3.16
+  },
+  {
+   "w": "Si",
+   "start": 3.76,
+   "end": 3.84
+  },
+  {
+   "w": "el",
+   "start": 3.84,
+   "end": 3.94
+  },
+  {
+   "w": "central",
+   "start": 3.94,
+   "end": 4.2
+  },
+  {
+   "w": "responde",
+   "start": 4.2,
+   "end": 4.74
+  },
+  {
+   "w": "bien,",
+   "start": 4.74,
+   "end": 4.96
+  },
+  {
+   "w": "listo.",
+   "start": 5.32,
+   "end": 5.92
+  },
+  {
+   "w": "Si",
+   "start": 6.36,
+   "end": 6.56
+  },
+  {
+   "w": "responde",
+   "start": 6.56,
+   "end": 7.0
+  },
+  {
+   "w": "con",
+   "start": 7.0,
+   "end": 7.1
+  },
+  {
+   "w": "un",
+   "start": 7.1,
+   "end": 7.24
+  },
+  {
+   "w": "error",
+   "start": 7.24,
+   "end": 7.46
+  },
+  {
+   "w": "suyo",
+   "start": 7.46,
+   "end": 8.06
+  },
+  {
+   "w": "o",
+   "start": 8.06,
+   "end": 8.28
+  },
+  {
+   "w": "no",
+   "start": 8.28,
+   "end": 8.36
+  },
+  {
+   "w": "responde,",
+   "start": 8.36,
+   "end": 9.06
+  },
+  {
+   "w": "reintentamos",
+   "start": 9.26,
+   "end": 9.82
+  },
+  {
+   "w": "esperando",
+   "start": 9.82,
+   "end": 10.28
+  },
+  {
+   "w": "cada",
+   "start": 10.28,
+   "end": 10.74
+  },
+  {
+   "w": "vez",
+   "start": 10.74,
+   "end": 11.02
+  },
+  {
+   "w": "el",
+   "start": 11.02,
+   "end": 11.32
+  },
+  {
+   "w": "doble.",
+   "start": 11.32,
+   "end": 11.7
+  },
+  {
+   "w": "Uno,",
+   "start": 12.32,
+   "end": 12.54
+  },
+  {
+   "w": "dos,",
+   "start": 13.06,
+   "end": 13.16
+  },
+  {
+   "w": "cuatro,",
+   "start": 13.66,
+   "end": 13.96
+  },
+  {
+   "w": "ocho",
+   "start": 14.36,
+   "end": 14.58
+  },
+  {
+   "w": "segundos,",
+   "start": 14.58,
+   "end": 14.94
+  },
+  {
+   "w": "hasta",
+   "start": 15.28,
+   "end": 15.48
+  },
+  {
+   "w": "30,",
+   "start": 15.48,
+   "end": 15.82
+  },
+  {
+   "w": "con",
+   "start": 16.54,
+   "end": 16.78
+  },
+  {
+   "w": "un",
+   "start": 16.78,
+   "end": 16.88
+  },
+  {
+   "w": "poco",
+   "start": 16.88,
+   "end": 17.1
+  },
+  {
+   "w": "de",
+   "start": 17.1,
+   "end": 17.26
+  },
+  {
+   "w": "azar",
+   "start": 17.26,
+   "end": 17.52
+  },
+  {
+   "w": "para",
+   "start": 17.52,
+   "end": 17.84
+  },
+  {
+   "w": "que",
+   "start": 17.84,
+   "end": 18.02
+  },
+  {
+   "w": "no",
+   "start": 18.02,
+   "end": 18.14
+  },
+  {
+   "w": "reintentes",
+   "start": 18.14,
+   "end": 18.64
+  },
+  {
+   "w": "todos",
+   "start": 18.64,
+   "end": 19.16
+  },
+  {
+   "w": "a",
+   "start": 19.16,
+   "end": 19.38
+  },
+  {
+   "w": "la",
+   "start": 19.38,
+   "end": 19.44
+  },
+  {
+   "w": "vez.",
+   "start": 19.44,
+   "end": 19.72
+  },
+  {
+   "w": "Si",
+   "start": 20.3,
+   "end": 20.6
+  },
+  {
+   "w": "responde",
+   "start": 20.6,
+   "end": 21.14
+  },
+  {
+   "w": "que",
+   "start": 21.14,
+   "end": 21.3
+  },
+  {
+   "w": "el",
+   "start": 21.3,
+   "end": 21.38
+  },
+  {
+   "w": "mensaje",
+   "start": 21.38,
+   "end": 21.68
+  },
+  {
+   "w": "está",
+   "start": 21.68,
+   "end": 21.9
+  },
+  {
+   "w": "mal,",
+   "start": 21.9,
+   "end": 22.1
+  },
+  {
+   "w": "un",
+   "start": 22.46,
+   "end": 22.58
+  },
+  {
+   "w": "error",
+   "start": 22.58,
+   "end": 22.82
+  },
+  {
+   "w": "400,",
+   "start": 22.82,
+   "end": 23.32
+  },
+  {
+   "w": "no",
+   "start": 24.1,
+   "end": 24.34
+  },
+  {
+   "w": "insistimos",
+   "start": 24.34,
+   "end": 24.9
+  },
+  {
+   "w": "y",
+   "start": 24.9,
+   "end": 25.18
+  },
+  {
+   "w": "lo",
+   "start": 25.18,
+   "end": 25.28
+  },
+  {
+   "w": "dejamos",
+   "start": 25.28,
+   "end": 25.54
+  },
+  {
+   "w": "en",
+   "start": 25.54,
+   "end": 25.72
+  },
+  {
+   "w": "el",
+   "start": 25.72,
+   "end": 25.84
+  },
+  {
+   "w": "lot.",
+   "start": 25.84,
+   "end": 25.96
+  }
+ ]
+}

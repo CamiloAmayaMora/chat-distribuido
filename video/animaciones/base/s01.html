@@ -1,0 +1,100 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s01-stage { position: absolute; inset: 0; }
+    #s01-svg { position: absolute; inset: 0; }
+    .s01-g { width: 300px; height: 170px; font-size: 64px; }
+    #s01-ga { left: 260px; top: 150px; border-color: var(--ga); }
+    #s01-gb { left: 1360px; top: 150px; border-color: var(--gb); }
+    #s01-gc { left: 260px; top: 690px; border-color: var(--gc); }
+    #s01-gd { left: 1360px; top: 690px; border-color: var(--gd); }
+    #s01-hub { left: 790px; top: 455px; width: 340px; height: 170px; font-size: 48px; border-color: var(--ink); }
+    #s01-cap { left: 0; right: 0; top: 925px; text-align: center; font-size: 56px; }
+    #s01-cap span { position: absolute; left: 0; right: 0; }
+    #s01-msg { left: 330px; top: 360px; border-color: var(--ga); }
+    #s01-off { left: 1400px; top: 108px; font-family: var(--font-mono); font-size: 28px; color: var(--bad); letter-spacing: .12em; position: absolute; }
+    #s01-q { left: 990px; top: 290px; font-family: var(--font-display); font-weight: 700; font-size: 150px; color: var(--warn); position: absolute; }
+    #s01-ask { left: 160px; right: 160px; top: 925px; text-align: center; font-size: 54px; }
+    #s01-end { position: absolute; inset: 0; }
+    #s01-kick { left: 0; right: 0; top: 330px; text-align: center; }
+    #s01-t1 { left: 0; right: 0; top: 390px; text-align: center; font-size: 132px; }
+    #s01-t1 b { color: var(--ga); font-weight: 600; }
+    #s01-sub { left: 0; right: 0; top: 730px; text-align: center; font-size: 36px; color: var(--muted); position: absolute; font-family: var(--font-body); }
+  </style>
+  <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+    <div id="s01-stage" class="clip" data-start="0" data-duration="11.6">
+      <svg id="s01-svg" viewBox="0 0 1920 1080">
+        <g stroke="#2a3442" stroke-width="5" stroke-linecap="round">
+          <line id="s01-w1" x1="960" y1="540" x2="410" y2="235" />
+          <line id="s01-w2" x1="960" y1="540" x2="1510" y2="235" />
+          <line id="s01-w3" x1="960" y1="540" x2="410" y2="775" />
+          <line id="s01-w4" x1="960" y1="540" x2="1510" y2="775" />
+        </g>
+        <circle id="s01-d1" r="12" fill="#b98cff" cx="410" cy="775" />
+        <circle id="s01-d2" r="12" fill="#b98cff" cx="960" cy="540" />
+        <circle id="s01-d3" r="12" fill="#b98cff" cx="960" cy="540" />
+        <circle id="s01-d4" r="12" fill="#b98cff" cx="960" cy="540" />
+      </svg>
+      <div id="s01-ga" class="node s01-g">ga</div>
+      <div id="s01-gb" class="node s01-g">gb</div>
+      <div id="s01-gc" class="node s01-g">gc</div>
+      <div id="s01-gd" class="node s01-g">gd</div>
+      <div id="s01-hub" class="node">#general<small>servidor central</small></div>
+      <div id="s01-off">APAGADO</div>
+      <div id="s01-msg" class="bubble">ana@ga: hola a todos</div>
+      <div id="s01-q">?</div>
+      <div id="s01-cap" class="title">
+        <span id="s01-c1">Cuatro grupos.</span>
+        <span id="s01-c2">Cuatro servidores.</span>
+        <span id="s01-c3">Una sola sala de chat.</span>
+      </div>
+      <div id="s01-ask" class="title">¿Qué le pasa a un mensaje si su destino se apaga?</div>
+    </div>
+    <div id="s01-end" class="clip" data-start="11.2" data-duration="4.8">
+      <div id="s01-kick" class="kicker">Sistemas Distribuidos · UIS · Proyecto final</div>
+      <div id="s01-t1" class="title">Chat <b>distribuido</b><br />entre grupos</div>
+      <div id="s01-sub">Camilo Amaya · Johen Castañeda · Daniel Rodriguez · Hector Higuera</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const groups = ["#s01-ga", "#s01-gb", "#s01-gc", "#s01-gd"];
+    // 1. cuatro grupos
+    tl.fromTo(groups, { opacity: 0, scale: 0.7, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "expo.out", stagger: 0.12 }, 0.3);
+    tl.fromTo("#s01-c1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.4);
+    tl.to("#s01-c1", { opacity: 0, filter: "blur(8px)", duration: 0.18 }, 1.7);
+    tl.fromTo("#s01-c2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.85);
+    tl.to("#s01-c2", { opacity: 0, filter: "blur(8px)", duration: 0.18 }, 3.2);
+    // 2. una sala: aparece el central y los cables
+    ["#s01-w1", "#s01-w2", "#s01-w3", "#s01-w4"].forEach((w, i) => {
+      tl.fromTo(w, { attr: { "stroke-dasharray": "700 700", "stroke-dashoffset": 700 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.8, ease: "power2.inOut" }, 3.2 + i * 0.08);
+    });
+    tl.fromTo("#s01-hub", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.8, ease: "expo.out" }, 3.3);
+    tl.fromTo("#s01-c3", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 3.4);
+    // un mensaje de gc viaja al central y se reparte
+    tl.fromTo("#s01-d1", { opacity: 0 }, { opacity: 1, duration: 0.1 }, 4.3);
+    tl.to("#s01-d1", { attr: { cx: 960, cy: 540 }, duration: 0.8, ease: "power2.inOut" }, 4.3);
+    tl.to("#s01-d1", { opacity: 0, duration: 0.1 }, 5.1);
+    tl.fromTo(["#s01-d2", "#s01-d3", "#s01-d4"], { opacity: 0 }, { opacity: 1, duration: 0.1 }, 5.1);
+    tl.to("#s01-d2", { attr: { cx: 410, cy: 235 }, duration: 0.8, ease: "power2.inOut" }, 5.1);
+    tl.to("#s01-d3", { attr: { cx: 1510, cy: 235 }, duration: 0.8, ease: "power2.inOut" }, 5.1);
+    tl.to("#s01-d4", { attr: { cx: 1510, cy: 775 }, duration: 0.8, ease: "power2.inOut" }, 5.1);
+    tl.to(["#s01-d2", "#s01-d3", "#s01-d4"], { opacity: 0, duration: 0.15 }, 5.9);
+    tl.to("#s01-c3", { opacity: 0, filter: "blur(8px)", duration: 0.18 }, 6.0);
+    // 3. la pregunta: ga escribe, gb se apaga a mitad de camino
+    tl.fromTo("#s01-msg", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 6.2);
+    tl.to("#s01-msg", { x: 420, y: -20, duration: 1.0, ease: "power2.inOut" }, 6.9);
+    tl.to("#s01-gb", { borderColor: "#ff5c5c", opacity: 0.35, duration: 0.25, ease: "power2.out" }, 7.9);
+    tl.fromTo("#s01-off", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 7.95);
+    tl.to("#s01-msg", { x: 760, y: -40, duration: 0.7, ease: "power3.out" }, 8.0);
+    tl.fromTo("#s01-q", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 8.6);
+    tl.fromTo("#s01-ask", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" }, 7.2);
+    // salida hacia el título
+    tl.to("#s01-stage", { opacity: 0, filter: "blur(14px)", scale: 1.06, duration: 0.45, ease: "power3.in" }, 11.1);
+    tl.fromTo("#s01-kick", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 11.5);
+    tl.fromTo("#s01-t1", { opacity: 0, filter: "blur(12px)", scale: 0.96 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, 11.4);
+    tl.fromTo("#s01-sub", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 12.0);
+    tl.to("#s01-end", { opacity: 0, duration: 0.3, ease: "power2.in" }, 15.6);
+    window.__timelines["s01"] = tl;
+  </script>
+</template>

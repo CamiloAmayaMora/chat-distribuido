@@ -19,7 +19,7 @@
     
   </style>
   <div id="root" data-composition-id="s10" data-width="1920" data-height="1080">
-    <div id="s10-scene" class="clip" data-start="0" data-duration="20">
+    <div id="s10-scene" class="clip" data-start="0.00" data-duration="20.24">
       <div id="s10-k" class="kicker">Detección de fallas · ¿sigue vivo el central?</div>
       <svg id="s10-svg" viewBox="0 0 1920 1080">
         <line x1="520" y1="405" x2="1400" y2="405" stroke="#2a3442" stroke-width="5" stroke-dasharray="14 12" />
@@ -47,6 +47,10 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const WARP = [[0, 0], [1.0, 1.4], [3.4, 4.6], [6.2, 7.4], [6.9, 8.9], [8.6, 10.6], [9.0, 11.7], [11.2, 14.0], [14.0, 17.2], [20, 20.24]];
+    const W = (t) => { const p = WARP; if (t <= p[0][0]) return t; for (let i = 1; i < p.length; i++) { if (t <= p[i][0]) { const [a, b] = p[i - 1], [c, d] = p[i]; return b + (t - a) * (d - b) / (c - a); } } const [a, b] = p[p.length - 1]; return b + (t - a); };
+    for (const m of ["to", "fromTo", "set", "from"]) { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = W(a[i]); return f(...a); }; }
+
     tl.fromTo("#s10-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
     tl.fromTo(["#s10-ga", "#s10-c"], { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out", stagger: 0.12 }, 0.2);
     tl.fromTo(["#s10-lbl", "#s10-st", "#s10-pend"], { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.1 }, 0.6);

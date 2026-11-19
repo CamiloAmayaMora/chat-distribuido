@@ -1,0 +1,49 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s16-scene { position: absolute; inset: 0; }
+    #s16-k { left: 0; right: 0; top: 150px; text-align: center; }
+    #s16-row1 { position: absolute; left: 0; right: 0; top: 240px; display: flex; justify-content: center; align-items: center; gap: 34px; }
+    .s16-box { padding: 30px 40px; border-radius: 26px; background: var(--panel); border: 3px solid var(--line); font-family: var(--font-display); font-size: 50px; font-weight: 600; }
+    #s16-b1 { border-color: var(--warn); } #s16-b2 { border-color: var(--gb); }
+    .s16-op { font-family: var(--font-display); font-size: 80px; color: var(--muted); }
+    #s16-eq { left: 0; right: 0; top: 430px; text-align: center; font-size: 72px; }
+    #s16-eq b { color: var(--ok); font-weight: 700; }
+    #s16-row2 { position: absolute; left: 0; right: 0; top: 640px; display: flex; justify-content: center; align-items: center; gap: 34px; }
+    #s16-b3 { border-color: var(--ga); }
+    #s16-l2 { font-family: var(--font-display); font-size: 50px; font-weight: 500; }
+    #s16-l2 b { color: var(--ok); font-weight: 600; }
+    #s16-thx { left: 0; right: 0; top: 840px; text-align: center; font-size: 96px; }
+  </style>
+  <div id="root" data-composition-id="s16" data-width="1920" data-height="1080">
+    <div id="s16-scene" class="clip" data-start="0" data-duration="19.5">
+      <div id="s16-k" class="kicker">En resumen</div>
+      <div id="s16-row1">
+        <div id="s16-b1" class="s16-box">Reintentar hasta que llegue</div>
+        <div id="s16-p1" class="s16-op">+</div>
+        <div id="s16-b2" class="s16-box">Descartar los repetidos</div>
+      </div>
+      <div id="s16-eq" class="title">= cada mensaje se ve <b>exactamente una vez</b></div>
+      <div id="s16-row2">
+        <div id="s16-b3" class="s16-box">Reloj de Lamport</div>
+        <div id="s16-p2" class="s16-op">→</div>
+        <div id="s16-l2">el <b>mismo orden</b> para todos, sin un reloj común</div>
+      </div>
+      <div id="s16-thx" class="title">Gracias</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s16-k", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.5);
+    tl.fromTo("#s16-b1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 2.3);
+    tl.fromTo("#s16-p1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 4.1);
+    tl.fromTo("#s16-b2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 4.3);
+    tl.fromTo("#s16-eq", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power4.out" }, 6.8);
+    tl.fromTo("#s16-b3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 10.8);
+    tl.fromTo("#s16-p2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 12.4);
+    tl.fromTo("#s16-l2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 12.6);
+    tl.fromTo("#s16-thx", { opacity: 0, filter: "blur(12px)", scale: 0.95 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.5, ease: "expo.out" }, 16.6);
+    tl.to("#s16-scene", { opacity: 0, duration: 0.4, ease: "power2.in" }, 19.0);
+    window.__timelines["s16"] = tl;
+  </script>
+</template>

@@ -30,7 +30,7 @@
     #s13-leg b { color: var(--ok); font-weight: 600; }
   </style>
   <div id="root" data-composition-id="s13" data-width="1920" data-height="1080">
-    <div id="s13-scene" class="clip" data-start="0" data-duration="31">
+    <div id="s13-scene" class="clip" data-start="0.00" data-duration="31.50">
       <div id="s13-k" class="kicker">Experimento · método</div>
       <div id="s13-lap"><div class="kicker">un solo portátil · docker compose</div></div>
       <svg id="s13-svg" viewBox="0 0 1920 1080">
@@ -67,6 +67,10 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const WARP = [[0, 0], [0.6, 1.8], [4.6, 7.4], [8.0, 11.4], [10.4, 14.6], [12.4, 16.4], [13.8, 18.6], [16.6, 20.8], [19.8, 24.6], [22.4, 28.6], [31, 31.5]];
+    const W = (t) => { const p = WARP; if (t <= p[0][0]) return t; for (let i = 1; i < p.length; i++) { if (t <= p[i][0]) { const [a, b] = p[i - 1], [c, d] = p[i]; return b + (t - a) * (d - b) / (c - a); } } const [a, b] = p[p.length - 1]; return b + (t - a); };
+    for (const m of ["to", "fromTo", "set", "from"]) { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = W(a[i]); return f(...a); }; }
+
     tl.fromTo("#s13-k", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
     tl.fromTo("#s13-lap", { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 0.2);
     tl.fromTo(["#s13-c", "#s13-gb", "#s13-ga"], { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out", stagger: 0.35 }, 0.6);

@@ -1,6 +1,0 @@
-[
-  {"nombre": "Camilo Amaya Mora", "rol": "Pregunta, hipótesis y arquitectura", "acento": "#ff5d84"},
-  {"nombre": "Johen Gustavo Castañeda García", "rol": "El servidor por dentro: outbox, Lamport e idempotencia", "acento": "#5aa9ff"},
-  {"nombre": "Daniel Rodriguez Anaya", "rol": "Conexión con el central, demo e interoperabilidad", "acento": "#34c3a9"},
-  {"nombre": "Hector Felipe Higuera Jurado", "rol": "Experimento y resultados", "acento": "#f5b748"}
-]
