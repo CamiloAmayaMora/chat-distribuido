@@ -78,6 +78,8 @@ def warp_fn(pts):
     return W
 
 
+FINAL_PTS = {}
+
 JS = """
     const WARP = %s;
     const W = (t) => { const p = WARP; if (t <= p[0][0]) return t; for (let i = 1; i < p.length; i++) { if (t <= p[i][0]) { const [a, b] = p[i - 1], [c, d] = p[i]; return b + (t - a) * (d - b) / (c - a); } } const [a, b] = p[p.length - 1]; return b + (t - a); };
@@ -103,6 +105,7 @@ def warp_scene(sid):
     if not pts:
         (COMP / f"{sid}.html").write_text(src, encoding="utf-8")
         return ORIG_DUR[sid]
+    FINAL_PTS[sid] = pts
     W = warp_fn(pts)
 
     def clip(m):
@@ -234,7 +237,7 @@ def main():
 </html>
 """
     (ANIM / "index.html").write_text(page, encoding="utf-8")
-    plan = {"total": total, "escenas": [{"id": s.upper(), "inicio": round(sum(durs[x] for x in ORDEN[:i]), 2), "dura": durs[s]}
+    plan = {"total": total, "warps": FINAL_PTS, "escenas": [{"id": s.upper(), "inicio": round(sum(durs[x] for x in ORDEN[:i]), 2), "dura": durs[s]}
                                         for i, s in enumerate(ORDEN)]}
     (VIDEO / "render" / "plan_final.json").write_text(json.dumps(plan, indent=1), encoding="utf-8")
     for e in plan["escenas"]:
