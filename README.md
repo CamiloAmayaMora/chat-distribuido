@@ -1,5 +1,8 @@
 # Chat distribuido entre grupos — servidor de grupo
 
+> 🎬 **Video de la sustentación:** https://youtu.be/VZ5T6VInjBE
+
+
 Proyecto final de **Sistemas Distribuidos** (UIS · EISI).
 
 **Integrantes:** Camilo Amaya Mora · Johen Gustavo Castañeda García · Daniel Rodriguez Anaya · Hector Felipe Higuera Jurado
@@ -179,13 +182,12 @@ docker compose -f docker-compose.lab.yml start central      # CENTRAL_UP, OUTBOX
 
 ## 10. Video de sustentación
 
-**Video final: `video/render/video_final.mp4`** (≈ 7,5 min, voz en off del grupo sobre animaciones y una demo real).
+**Video final (7 min 15 s): [verlo en YouTube](https://youtu.be/VZ5T6VInjBE)** · [archivo en el repositorio](video/render/video_final.mp4). Voz en off del grupo sobre animaciones y una demo real.
 Guion y explicación: **[docs/Guion_video.pdf](docs/Guion_video.pdf)**.
 
 | Pieza | Dónde |
 |---|---|
-| Grabaciones originales del grupo | `Audios y Videos Video/` |
-| Voces limpias y transcripciones | `video/voces/limpias/`, `video/voces/transcripciones/` |
+| Transcripciones de las voces | `video/voces/transcripciones/` |
 | Animaciones (HyperFrames) | `video/animaciones/` (`base/` originales, `compositions/` sincronizadas) |
 | Demo real grabada | `video/render/demo.mp4` (`node video/demo/grabar_demo.mjs`) |
 | Proyecto de DaVinci Resolve (para música) | `video/resolve/` |
