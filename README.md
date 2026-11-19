@@ -14,8 +14,6 @@ recepción, entrega al menos una vez con backoff exponencial y deduplicación, r
 Lamport, detección de fallos por heartbeat, recuperación de historial, cliente y logs.
 
 
-> **Documentos para el equipo:** [`docs/Explicacion_sencilla_del_proyecto.pdf`](docs/Explicacion_sencilla_del_proyecto.pdf)
-> (qué hace cada parte y cómo ejecutarlo, en palabras simples) · [`docs/Guion_sustentacion.pdf`](docs/Guion_sustentacion.pdf)
 > · [`poster/poster.pdf`](poster/poster.pdf) · [`docs/bitacora_interoperabilidad.md`](docs/bitacora_interoperabilidad.md)
 
 ![Arquitectura](docs/architecture.svg)
@@ -182,17 +180,7 @@ docker compose -f docker-compose.lab.yml start central      # CENTRAL_UP, OUTBOX
 
 ## 10. Video de sustentación
 
-**Video final (7 min 15 s): [verlo en YouTube](https://youtu.be/VZ5T6VInjBE)** · [archivo en el repositorio](video/render/video_final.mp4). Voz en off del grupo sobre animaciones y una demo real.
-Guion y explicación: **[docs/Guion_video.pdf](docs/Guion_video.pdf)**.
-
-| Pieza | Dónde |
-|---|---|
-| Transcripciones de las voces | `video/voces/transcripciones/` |
-| Animaciones (HyperFrames) | `video/animaciones/` (`base/` originales, `compositions/` sincronizadas) |
-| Demo real grabada | `video/render/demo.mp4` (`node video/demo/grabar_demo.mjs`) |
-| Proyecto de DaVinci Resolve (para música) | `video/resolve/` |
-
-Rehacer el video: `python video/tools/sincronizar.py` y luego `npx hyperframes render . -o ../render/video_final.mp4` dentro de `video/animaciones`.
+[Ver en YouTube](https://youtu.be/VZ5T6VInjBE) · archivo: [video/video_final.mp4](video/video_final.mp4) (7 min 15 s).
 
 ## 11. Referencias
 
