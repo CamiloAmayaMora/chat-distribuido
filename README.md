@@ -1,5 +1,5 @@
 # Chat distribuido entre grupos — servidor de grupo
-################################################
+##################################################
 > 🎬 **Video de la sustentación:** https://youtu.be/VZ5T6VInjBE
 
 
