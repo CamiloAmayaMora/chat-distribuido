@@ -1,4 +1,4 @@
-# Despliegue del servidor del grupo (lo que se usa en la sesión de interoperabilidad).
+# Despliegue del servidor del grupo (lo que se usa en la sesión de interoperabilidad  ).
 #   1) cp .env.example .env   y editar GROUP_NAME, PUBLIC_URL y CENTRAL_URL
 #   2) docker compose up -d --build
 #   3) abrir http://localhost:${HOST_PORT}
