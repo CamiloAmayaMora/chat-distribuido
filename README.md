@@ -5,7 +5,7 @@
 
 Proyecto final de **Sistemas Distribuidos** (UIS · EISI).
 
-**Integrantes:** Camilo Amaya Mora · Johen Gustavo Castañeda García · Daniel Felipe Rodriguez Anaya · Hector Felipe Higuera Jurado
+**Integrantes:** Camilo Amaya Mora · Johen Gustavo Castañeda García · Daniel Felipe Rodriguez Anaya · Hectór Felipe Higuera Jurado
 
 Servidor de chat en contenedores que se une a la sala global `#general` a través del
 servidor central del curso. Cumple los 11 requisitos del mínimo común: despliegue con
@@ -188,3 +188,5 @@ docker compose -f docker-compose.lab.yml start central      # CENTRAL_UP, OUTBOX
 * Lamport, L. "Time, Clocks, and the Ordering of Events in a Distributed System". *CACM* 21(7), 1978.
 * Enunciado y especificación OpenAPI del proyecto final, Sistemas Distribuidos, UIS, 2026.
 * Documentación de FastAPI, SQLite (WAL) y Docker Compose.
+
+
